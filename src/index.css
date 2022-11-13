@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.bg-navbar{
+  background: #4D14C7 !important;
+}
+.bg-dark-20{
+  background: #0a021d2d !important;
+}
+.text-light-50{
+  color: #ffffffc3 !important;
+}
+.size-logo{height: 1.5em;}
+.nav-menu{border-bottom: #f5deb3 .15em solid;
+}
+.text-wheat{
+  color: wheat;
+}
+.bg-body{
+  background: rgb(236, 242, 251) !important;
+}
+.stroke-white{
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
