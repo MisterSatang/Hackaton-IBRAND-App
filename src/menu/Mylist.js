@@ -1,72 +1,22 @@
 import { Fragment } from "react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
-export default function Home() {
+export default function Mylist() {
   return (
     <Fragment>
       <Navbar />
       <div className="container-fluid pt-4">
         <div className="row">
           <div className="col-1"></div>
-          <div className="col">
-            <div className="row">
-              <div className="col">
-                <div class="input-group flex-nowrap">
-                  <span class="input-group-text" id="addon-wrapping">
-                    <i class="bi bi-geo-alt"></i>
-                  </span>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="ค้นหาจังหวัด"
-                  />
-                </div>
-              </div>
-              <div className="col">
-                <div class="input-group flex-nowrap">
-                  <span class="input-group-text" id="addon-wrapping">
-                    <i class="bi bi-building"></i>
-                  </span>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="ค้นหาชื่อโรงงาน"
-                  />
-                </div>
-              </div>
-              <div className="col">
-                <div class="input-group">
-                  <select class="form-select" id="inputGroupSelect02">
-                    <option selected>ประเภท</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-              <div className="col">
-                <div class="input-group">
-                  <select class="form-select" id="inputGroupSelect02">
-                    <option selected>หมวดหมู่</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-              <div className="col">
-                <div class="input-group">
-                  <select class="form-select" id="inputGroupSelect02">
-                    <option selected>วัสดุพิเศษ</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
+          <div className="col-10">
+            <div className="border-bottom border-2 pb-2">
+              <div className="fs-4 fw-bold text-uppercase">
+                <i class="bi bi-heart-fill fs-5 me-2 text-danger"></i>
+                Mylist
               </div>
             </div>
           </div>
-          <div className="col-1 p-0 m-0"></div>
+          <div className="col-1"></div>
         </div>
       </div>
       <div className="container-fluid">
@@ -81,7 +31,7 @@ export default function Home() {
                     src="asset/factory/factory-01.jpg"
                     class="card-img-top rounded-3"
                   />
-                  <i class="bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 text-black-50"></i>
+                  <i class="bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 text-danger"></i>
                 </div>
                 <div class="card-body">
                   <div className="d-flex justify-content-between">

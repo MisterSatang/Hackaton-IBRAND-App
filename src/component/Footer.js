@@ -11,8 +11,8 @@ export default function Footer() {
               <div className="col-lg-4 col-md-12 mb-4 mb-md-0">
                 <h5 className="text-uppercase mb-4">About Project ibrand</h5>
                 <p>
-                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                  blanditiis praesentium voluptatum deleniti atque corrupti.
+                  At vero eos et accusamus odio dignissimos ducimus qui
+                  blanditiis praesentium atque corrupti.
                 </p>
                 <p>
                   Blanditiis praesentium voluptatum deleniti atque corrupti quos
@@ -22,10 +22,12 @@ export default function Footer() {
               {/*Grid column*/}
               {/*Grid column*/}
               <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
-                <h5 className="text-uppercase mb-4 pb-1">Search something</h5>
+                <h5 className="text-uppercase mb-4 pb-1">
+                  Make Brand Easy Like Snap
+                </h5>
                 <p>
-                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                  blanditiis praesentium voluptatum deleniti atque corrupti.
+                  Blanditiis praesentium voluptatum deleniti atque corrupti quos
+                  dolores et quas molestias.
                 </p>
               </div>
               {/*Grid column*/}
@@ -45,16 +47,12 @@ export default function Footer() {
                     <i class="bi bi-telephone-fill"></i>
                     <span className="ms-2">+ 01 234 567 88</span>
                   </div>
-                  <div className="mb-3">
-                    <i class="bi bi-telephone-fill"></i>
-                    <span className="ms-2">+ 01 234 567 89</span>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="text-center p-3 bg-dark-20">
-            Design By
+            Company :
             <a className="ms-2 text-wheat" href="#">
               IBRAND.com
             </a>
