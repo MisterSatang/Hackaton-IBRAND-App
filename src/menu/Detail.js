@@ -7,7 +7,7 @@ export default function Detail() {
   return (
     <Fragment>
       <Navbar />
-      <div className="container-fluid pt-4">
+      <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>
           <div className="col-10">
@@ -25,28 +25,46 @@ export default function Detail() {
         </div>
       </div>
 
-      <div className="container-fluid pt-4">
+      <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>
           <div className="col-10">
             <div className="row mb-4">
-              <div className="col-4">
+              <div className="col-5 p-0">
                 <img
                   src="asset/factory/factory-01-1.jpg"
-                  class="card-img-top rounded-3 img-select"
+                  class="card-img-top img-detail-1"
                 />
               </div>
-              <div className="col-4">
-                <img
-                  src="asset/factory/factory-01-3.jpg"
-                  class="card-img-top rounded-3 img-select"
-                />
-              </div>
-              <div className="col-4">
-                <img
-                  src="asset/factory/factory-01-2.jpg"
-                  class="card-img-top rounded-3 img-select"
-                />
+              <div className="col p-0">
+                <div className="row">
+                  <div className="col pe-0">
+                    <img
+                      src="asset/factory/factory-01-3.jpg"
+                      class="card-img-top img-detail-2"
+                    />
+                  </div>
+                  <div className="col ps-0">
+                    <img
+                      src="asset/factory/factory-01-2.jpg"
+                      class="card-img-top img-detail-2"
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col pe-0">
+                    <img
+                      src="asset/factory/factory-01-3.jpg"
+                      class="card-img-top img-detail-2"
+                    />
+                  </div>
+                  <div className="col ps-0">
+                    <img
+                      src="asset/factory/factory-01-2.jpg"
+                      class="card-img-top img-detail-2"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <span className=" fs-5 fw-bold text-uppercase">Detail Company</span>

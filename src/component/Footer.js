@@ -3,8 +3,8 @@ import { Fragment } from "react";
 export default function Footer() {
   return (
     <Fragment>
-      <div className="container-fluid mt-5 p-0">
-        <footer className="text-white text-center text-lg-start bg-primary">
+      <div className="container-fluid pt-5 px-0 bg-body-purple">
+        <footer className="text-white text-center text-lg-start bg-navbar">
           <div className="container p-4">
             <div className="row mt-4">
               {/*Grid column*/}

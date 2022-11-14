@@ -3,7 +3,7 @@ import { Fragment } from "react";
 export default function Navbar() {
   return (
     <Fragment>
-      <nav class="navbar navbar-expand-lg bg-primary p-3 px-5 shadow">
+      <nav class="navbar navbar-expand-lg bg-navbar p-3 px-5 shadow">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="#">
             <img src="logo.png" class="size-logo"></img>
