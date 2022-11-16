@@ -11,6 +11,9 @@ import Wait from "./menu/Wait";
 import Appraise from "./menu/Appraise";
 import Pretester2_1 from "./menu/Pretester2_1";
 import Pretester2_2 from "./menu/Pretester2_2";
+import Pledge from "./menu/Pledge";
+import Packaging from "./menu/Packaging";
+import Pays from "./menu/Pays";
 
 //FIXME: Admin
 import TB_Product from "./admin/TB_1_Product";
@@ -38,6 +41,10 @@ export default function App() {
       <Route path="/appraise" element={<Appraise />} />
       <Route path="/pretester2-1" element={<Pretester2_1 />} />
       <Route path="/pretester2-2" element={<Pretester2_2 />} />
+      <Route path="/pledge" element={<Pledge />} />
+      <Route path="/packaging" element={<Packaging />} />
+      <Route path="/pays" element={<Pays />} />
+
       {/* admin */}
       <Route path="/tb_product" element={<TB_Product />} />
       <Route path="/tb_deliveries" element={<TB_Deliveries />} />
