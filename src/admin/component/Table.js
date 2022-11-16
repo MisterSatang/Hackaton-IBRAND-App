@@ -17,13 +17,7 @@ export default function Table() {
           <tr className="bg-light">
             <th scope="row">0231541311</th>
             <td>15/11/2565</td>
-            <td>
-              <div
-                class="spinner-border spinner-border-sm me-2 text-primary"
-                role="status"
-              ></div>
-              รอการยืนยัน...
-            </td>
+            <td className="text-danger fw-semibold">ยังไม่ได้ยืนยัน</td>
             <td>Otto</td>
             <td>
               <button type="button" class="btn btn-primary">

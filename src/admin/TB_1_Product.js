@@ -8,12 +8,10 @@ export function TB_1_Product({ className }) {
   return (
     <Fragment>
       <div className={className}>
-        <div className="container-fluid">
+        <div className="container-fluid bg-body-purple h-screen">
           <div className="row">
-            <div className="col-xl-2 col-lg-3 col-md-4 col-12 p-0 bg-navbar h-screen">
-              <Sidebar />
-            </div>
-            <div className="col bg-body-purple">
+            <Sidebar />
+            <div className="col">
               <div className="fs-2 fw-bold mt-5 ms-5">On Product</div>
               <div class="input-group flex-nowrap my-3">
                 <span class="input-group-text bg-warning" id="addon-wrapping">
