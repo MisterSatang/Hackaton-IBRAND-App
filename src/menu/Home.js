@@ -71,7 +71,7 @@ export function Home({ className }) {
               <div className="row">
                 {/* CARD*/}
                 <div className="col-3 py-0 px-2 mt-4">
-                  <div className="shadow-lg rounded-4 bg-light">
+                  <div className="shadow-lg rounded-4 bg-light h-100">
                     <div class="position-relative">
                       <img
                         src="asset/factory/factory-01.jpg"

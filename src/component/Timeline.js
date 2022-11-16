@@ -3,7 +3,7 @@ import { Fragment } from "react";
 export default function Navbar() {
   return (
     <Fragment>
-      <div className="container-fluid mt-4">
+      <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>
           <div className="col-10 p-0">

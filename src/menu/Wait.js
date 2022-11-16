@@ -7,11 +7,11 @@ export default function Wait() {
   return (
     <Fragment>
       <Navbar />
-      <div className="container-fluid pt-4">
+      <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>
           <div className="col-10">
-            <div className="d-flex justify-content-between border-bottom border-2 pb-2">
+            <div className="d-flex justify-content-between border-bottom border-primary border-2 pb-2">
               <div className="d-flex fs-4 fw-bold text-uppercase">
                 <i class="bi bi-buildings-fill fs-4 me-2"></i>
                 Top&Tang Company
@@ -25,15 +25,16 @@ export default function Wait() {
         </div>
       </div>
       <Timeline />
-      <div className="container-fluid pt-4">
+      <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>
           <div className="col-10">
-            <div className="bg-secondary p-4 rounded-4 mb-4">
-              <div className="d-flex fs-4 fw-bold text-light justify-content-center">
+            <div className="bg-warning p-4 rounded-4 mb-4">
+              <div className="d-flex fs-4 fw-bold text- justify-content-center">
+                <div class="spinner-border me-3" role="status"></div>
                 Waiting for confirmation from factory ...
               </div>
-              <div className="d-flex fs-5 text-light justify-content-center">
+              <div className="d-flex fs-5 text- justify-content-center">
                 กำลังตรวจสอบสูตร ใช้เวลาประมาณ 10-24 ชม.
               </div>
             </div>
