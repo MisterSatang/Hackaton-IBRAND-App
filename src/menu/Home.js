@@ -1,10 +1,23 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
-
+import axios from 'axios';
 import styled from "styled-components";
 
 export function Home({ className }) {
+  const [factory, setFactory] = useState([]);
+  useEffect(() => {
+    async function getfactory() {
+      const factory = await axios.get(
+        `http://localhost:8000/factory`
+      );
+      setFactory(factory.data);
+    }
+    getfactory();
+  }, []);
+
+  console.log(factory);
+
   return (
     <Fragment>
       <div className={className}>
