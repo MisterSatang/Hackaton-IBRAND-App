@@ -7,15 +7,75 @@ import styled from "styled-components";
 
 export function Home({ className }) {
   const [factory, setFactory] = useState([]);
+  const [province, setProvince] = useState('');
+  const [provinceDisplay, setProvinceDisplay] = useState([]);
+  const [product, setProduct] = useState('');
+  const [productDisplay, setProductDisplay] = useState([]);
+  const [catagory, setcatagory] = useState('');
+  const [catagoryDisplay, setcatagoryDisplay] = useState([]);
+  const [ingre, setingre] = useState('');
+  const [ingreDisplay, setingreDisplay] = useState([]);
+
   useEffect(() => {
     async function getfactory() {
-      const factory = await axios.get(`http://localhost:8000/factory`);
+      const factory = await axios.get
+        (`http://localhost:8000/factory/filter?province=${province}&catagory_english=${catagory}&product_have=${product}&p_ingre=${ingre}`);
       setFactory(factory.data);
     }
     getfactory();
+  }, [province, product, catagory, ingre]);
+
+  useEffect(() => {
+    async function getprovince() {
+      const province = await axios.get
+        (`http://localhost:8000/factory/province`);
+      setProvinceDisplay(province.data);
+    }
+    getprovince();
   }, []);
 
-  console.log(factory);
+  useEffect(() => {
+    async function getproduct() {
+      const catagory = await axios.get
+        (`http://localhost:8000/factory/product`);
+      setProductDisplay(catagory.data);
+    }
+    getproduct();
+  }, []);
+
+  useEffect(() => {
+    async function getcatagory() {
+      const catagory = await axios.get
+        (`http://localhost:8000/factory/catagory`);
+      setcatagoryDisplay(catagory.data);
+    }
+    getcatagory();
+  }, []);
+
+  useEffect(() => {
+    async function getingre() {
+      const ingre = await axios.get
+        (`http://localhost:8000/factory/ingre`);
+      setingreDisplay(ingre.data);
+    }
+    getingre();
+  }, []);
+
+  const Addprovince = (event) => {
+    setProvince(event.target.value);
+  }
+
+  const Addproduct = (event) => {
+    setProduct(event.target.value);
+  }
+
+  const Addcatagory = (event) => {
+    setcatagory(event.target.value);
+  }
+
+  const Addingre = (event) => {
+    setingre(event.target.value);
+  }
 
   return (
     <Fragment>
@@ -34,40 +94,43 @@ export function Home({ className }) {
                     >
                       <i class="bi bi-geo-alt"></i>
                     </span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="ค้นหาจังหวัด"
-                    />
+                    <div class="input-group">
+                      <select class="form-select" id="inputGroupSelect02" onChange={Addprovince}>
+                        <option selected value="">ค้นหาจังหวัด</option>
+                        {provinceDisplay.map((province) => (
+                          <option value={province}>{province}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div className="col mt-4">
                   <div class="input-group">
-                    <select class="form-select" id="inputGroupSelect02">
-                      <option selected>ประเภท</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select" id="inputGroupSelect02" onChange={Addcatagory}>
+                      <option selected value="">ประเภท</option>
+                      {catagoryDisplay.map((catagory) => (
+                        <option value={catagory}>{catagory}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
                 <div className="col mt-4">
                   <div class="input-group">
-                    <select class="form-select" id="inputGroupSelect02">
-                      <option selected>หมวดหมู่</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select" id="inputGroupSelect02" onChange={Addproduct}>
+                      <option selected value="">หมวดหมู่</option>
+                      {productDisplay.map((product) => (
+                        <option value={product}>{product}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
                 <div className="col mt-4">
                   <div class="input-group">
-                    <select class="form-select" id="inputGroupSelect02">
-                      <option selected>วัสดุพิเศษ</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select" id="inputGroupSelect02" onChange={Addingre}>
+                      <option selected value="">วัสดุ</option>
+                      {ingreDisplay.map((ingre) => (
+                        <option value={ingre}>{ingre}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -81,7 +144,17 @@ export function Home({ className }) {
             <div className="col-1"></div>
             <div className="col-10">
               <div className="row">
-                <Card />
+                {
+                  factory.length > 0 ? (
+                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                      {factory.map((factoryData) => (
+                        <Card key={factoryData.fac_id} factory={factoryData} />
+                      ))}
+                    </div>
+                  ) : (
+                    <div>No Factory Displays....</div>
+                  )
+                }
               </div>
             </div>
             <div className="col-1"></div>
