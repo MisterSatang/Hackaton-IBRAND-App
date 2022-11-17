@@ -32,6 +32,31 @@ export default function Pretester2_2() {
             <div className="d-flex fs-5 fw-bold text-uppercase">
               Step 3 : Pre Tester ( Confirm Product )
             </div>
+            <div className="row my-4">
+              <div className="col-3">
+                <img
+                  src="asset/factory/01.jpg"
+                  class="card-img-top border-image-pill shadow-lg"
+                />
+              </div>
+              <div className="col-9 shadow-lg rounded-4 bg-light">
+                <div class="px-3">
+                  <div class="d-flex mt-3">
+                    <span className="fs-5 fw-bold">สูตร : ColorFull</span>
+                    <span className="ms-4 fs-5 fw-bold text-danger">
+                      <i class="bi bi-currency-bitcoin"></i>4000/สูตร
+                    </span>
+                  </div>
+                  <div class="d-flex fw-semibold fs-3 text-danger"></div>
+                  <div class="card-text text-secondary mt-2 pb-3 fw-semibold">
+                    ช่วยลดการเกิดสิวที่ต้นเหตุ เช่น อนุมูลอิสระ ความมันส่วนเกิน
+                    เชื้อแบคทีเรียก่อสิว พร้อมผลัดเซลล์ผิวอย่างอ่อนโยน
+                    ช่วยให้ผิวเรียบเนียน กระจ่างใสขึ้น รวมถึงมีสารสกัดจากใบบัวบก
+                    ช่วยเพิ่มความชุ่มชื้นไม่ทำให้ผิวแห้งลอก
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="p-3 ps-5">
               <div className="form-check fs-4">
                 <input
@@ -53,19 +78,10 @@ export default function Pretester2_2() {
                   id="flexRadioDefault2"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault2">
-                  Not Confirm
+                  Not Confirm{" "}
+                  <span className="text-danger">* ต้องการเเก้ไขสูตร</span>
                 </label>
               </div>
-            </div>
-            <div className="d-flex fs-5 fw-bold text-uppercase">
-              แก้ไข/เพิ่มเติม อะไรบ้าง
-            </div>
-            <div class="form-outline mt-2">
-              <textarea
-                class="form-control"
-                id="textAreaExample"
-                rows="4"
-              ></textarea>
             </div>
             <div className="d-flex justify-content-between mt-4">
               <div className="d-flex"></div>
