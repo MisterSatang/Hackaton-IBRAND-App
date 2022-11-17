@@ -7,9 +7,37 @@ import styled from "styled-components";
 import DonotHave from "../component/DonotHave";
 
 export function Login({ className }) {
+  const [token, setToken] = useState("");
+  const [email, setEmail] = useState([]);
+  const [password, setPassword] = useState([]);
+
+
+  useEffect(() => {
+    if (!token) return
+    window.location.href = "/";
+  }, [token]);
+
+  const onSubmit = async (e) => {
+    console.log(email);
+    try {
+      e.preventDefault();
+      const token = await axios.post("http://localhost:8000/login", {
+        email,
+        password,
+      });
+      console.log(token);
+      localStorage.setItem("status", JSON.stringify(token.data.token));
+      setToken(JSON.parse(localStorage.getItem("status")));
+      window.location.href = "/";
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <Fragment>
       <div className={className}>
+        <Navbar />
         <div>
           <svg
             version="1.1"
@@ -113,16 +141,15 @@ export function Login({ className }) {
             <div className="fw-bold text-purple fs-2 text-uppercase ps-4  py-4">
               login ibrand
             </div>
-            <form>
-              <input type="text" className="username" placeholder="username" />
+            <form onSubmit={onSubmit}>
+              <input type="email" className="username" placeholder="username" onChange={e => setEmail(e.target.value)} />
               <br />
-              <input type="text" className="pwd" placeholder="password" />
+              <input type="password" className="pwd" placeholder="password" onChange={e => setPassword(e.target.value)} />
+              <br />
+              <button className="mt-2 d-flex signin w-100 justify-content-center align-items-center fs-5 rounded-bottom">
+                <div className="d-flex hover-signin">sign in</div>
+              </button>
             </form>
-
-            <br />
-            <button className="mt-2 d-flex signin w-100 justify-content-center align-items-center fs-5 rounded-bottom">
-              <div className="d-flex hover-signin">sign in</div>
-            </button>
             <h3>your registration is complete ! </h3>
             <h3>your sign in is complete !</h3>
             <div className="reg" />
@@ -228,7 +255,6 @@ export default styled(Login)`
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-left: 20px;
     font-family: "Open Sans", sans-serif;
-    text-transform: uppercase;
     color: #858585;
     font-weight: lighter;
     -webkit-transition: 0.5s;
