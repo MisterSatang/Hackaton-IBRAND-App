@@ -180,10 +180,18 @@ body {
 .img-dontHave{
   height: 5rem;
 }
-
+.rounded-menu{
+  border-radius: 2rem 2rem 2rem 2rem;
+}
 @media (max-width:767px) {
   .hide-sidebar{
     display: none;
+  }
+}
+@media (max-width:990px) {
+
+  .rounded-menu {
+    border-radius: 2rem 2rem 0rem 0rem;
   }
 }
 @media (min-width:767px) {

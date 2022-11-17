@@ -18,13 +18,13 @@ export default function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon "></span>
           </button>
           <div class="collapse navbar-collapse " id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto bg-dark-20 rounded-pill ">
+            <ul class="navbar-nav ms-auto bg-dark-20 rounded-5 ">
               <Link
                 to="/"
-                class="nav-link active bg-dark-20 rounded-pill p-2 px-5 text-light border-0"
+                class="nav-link active bg-dark-20 rounded-menu p-2 px-5 text-light border-0"
               >
                 <div class="nav-menu">
                   <i class="bi bi-house-door me-1 text-wheat"></i>Home
