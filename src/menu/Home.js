@@ -185,7 +185,7 @@ export function Home({ className }) {
                       <Card
                         key={factoryData.fac_id}
                         factory={factoryData}
-                        watchlist={user[0].watchlist}
+                        watchlist={user.watchlist}
                       />
                     ))}
                   </div>
