@@ -31,6 +31,7 @@ import Detail_Deliveries from "./admin/Detail_Deliveries";
 
 //FIXME: Login
 import Login from "./menu/Login";
+import Loading from "./component/Loading";
 
 //FIXME: 404
 import PageNotFound from "./menu/PageNotFound";
@@ -78,6 +79,7 @@ export default function App() {
 
       {/* Login */}
       <Route path="/login" element={<Login />} />
+      <Route path="/loading" element={<Loading />} />
 
       {/* NotFound */}
       <Route path="*" element={<PageNotFound />} />
