@@ -4,6 +4,7 @@ import Footer from "../component/Footer";
 import Card from "../component/Card";
 import axios from "axios";
 import styled from "styled-components";
+import DonotHave from "../component/DonotHave";
 
 export function Home({ className }) {
   const [factory, setFactory] = useState([]);
@@ -90,115 +91,113 @@ export function Home({ className }) {
   return (
     <Fragment>
       <div className={className}>
-        <div className="bg-body-purple h-screen position-relative">
-          <Navbar />
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-1"></div>
-              <div className="col">
-                <div className="row">
-                  <div className="col-xl-4 col-lg-5 col-md-5 col-12 mt-4">
-                    <div class="input-group flex-nowrap">
-                      <span
-                        class="input-group-text bg-warning"
-                        id="addon-wrapping"
-                      >
-                        <i class="bi bi-geo-alt"></i>
-                      </span>
-                      <div class="input-group">
-                        <select
-                          class="form-select"
-                          id="inputGroupSelect02"
-                          onChange={Addprovince}
-                        >
-                          <option selected value="">
-                            ค้นหาจังหวัด
-                          </option>
-                          {provinceDisplay.map((province) => (
-                            <option value={province}>{province}</option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col mt-4">
+        <Navbar />
+        <div className="container-fluid bg-body-purple">
+          <div className="row">
+            <div className="col-1"></div>
+            <div className="col">
+              <div className="row">
+                <div className="col-xl-4 col-lg-5 col-md-5 col-12 mt-4">
+                  <div class="input-group flex-nowrap">
+                    <span
+                      class="input-group-text bg-warning"
+                      id="addon-wrapping"
+                    >
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
                     <div class="input-group">
                       <select
                         class="form-select"
                         id="inputGroupSelect02"
-                        onChange={Addcatagory}
+                        onChange={Addprovince}
                       >
                         <option selected value="">
-                          ประเภท
+                          ค้นหาจังหวัด
                         </option>
-                        {catagoryDisplay.map((catagory) => (
-                          <option value={catagory}>{catagory}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col mt-4">
-                    <div class="input-group">
-                      <select
-                        class="form-select"
-                        id="inputGroupSelect02"
-                        onChange={Addproduct}
-                      >
-                        <option selected value="">
-                          หมวดหมู่
-                        </option>
-                        {productDisplay.map((product) => (
-                          <option value={product}>{product}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col mt-4">
-                    <div class="input-group">
-                      <select
-                        class="form-select"
-                        id="inputGroupSelect02"
-                        onChange={Addingre}
-                      >
-                        <option selected value="">
-                          วัสดุ
-                        </option>
-                        {ingreDisplay.map((ingre) => (
-                          <option value={ingre}>{ingre}</option>
+                        {provinceDisplay.map((province) => (
+                          <option value={province}>{province}</option>
                         ))}
                       </select>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-1 p-0 m-0"></div>
-            </div>
-          </div>
-          <div className="container-fluid bg-body-purple">
-            <div className="row">
-              <div className="col-1"></div>
-              <div className="col-10">
-                <div className="row">
-                  {factory.length > 0 ? (
-                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                      {factory.map((factoryData) => (
-                        <Card
-                          key={factoryData.fac_id}
-                          factory={factoryData}
-                          watchlist={user[0].watchlist}
-                        />
+                <div className="col mt-4">
+                  <div class="input-group">
+                    <select
+                      class="form-select"
+                      id="inputGroupSelect02"
+                      onChange={Addcatagory}
+                    >
+                      <option selected value="">
+                        ประเภท
+                      </option>
+                      {catagoryDisplay.map((catagory) => (
+                        <option value={catagory}>{catagory}</option>
                       ))}
-                    </div>
-                  ) : (
-                    <div>No Factory Displays....</div>
-                  )}
+                    </select>
+                  </div>
+                </div>
+                <div className="col mt-4">
+                  <div class="input-group">
+                    <select
+                      class="form-select"
+                      id="inputGroupSelect02"
+                      onChange={Addproduct}
+                    >
+                      <option selected value="">
+                        หมวดหมู่
+                      </option>
+                      {productDisplay.map((product) => (
+                        <option value={product}>{product}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="col mt-4">
+                  <div class="input-group">
+                    <select
+                      class="form-select"
+                      id="inputGroupSelect02"
+                      onChange={Addingre}
+                    >
+                      <option selected value="">
+                        วัสดุ
+                      </option>
+                      {ingreDisplay.map((ingre) => (
+                        <option value={ingre}>{ingre}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
-              <div className="col-1"></div>
             </div>
+            <div className="col-1 p-0 m-0"></div>
           </div>
-          <Footer />
         </div>
+        <div className="container-fluid bg-body-purple">
+          <div className="row">
+            <div className="col-1"></div>
+            <div className="col-10">
+              <div className="row">
+                {factory.length > 0 ? (
+                  <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    {factory.map((factoryData) => (
+                      <Card
+                        key={factoryData.fac_id}
+                        factory={factoryData}
+                        watchlist={user[0].watchlist}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <DonotHave />
+                )}
+              </div>
+            </div>
+            <div className="col-1"></div>
+          </div>
+        </div>
+        <Footer />
       </div>
     </Fragment>
   );

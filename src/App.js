@@ -15,7 +15,6 @@ import Pretester2_2 from "./menu/Pretester2_2";
 import Pledge from "./menu/Pledge";
 import Packaging from "./menu/Packaging";
 import Pays from "./menu/Pays";
-
 //FIXME: Admin
 import TB_Product from "./admin/TB_1_Product";
 import TB_Deliveries from "./admin/TB_8_Deliveries";
@@ -29,13 +28,15 @@ import Detail_Product from "./admin/Detail_Product";
 import Detail_Packaging from "./admin/Detail_Packaging";
 import Detail_Deliveries from "./admin/Detail_Deliveries";
 
+//FIXME: 404
+import PageNotFound from "./menu/PageNotFound";
+
 export default function App() {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     async function getUser() {
-      const user = await axios.get
-        (`http://localhost:8000/user/1`);
+      const user = await axios.get(`http://localhost:8000/user/1`);
       setUser(user.data);
     }
     getUser();
@@ -69,6 +70,7 @@ export default function App() {
       <Route path="/detail_product" element={<Detail_Product />} />
       <Route path="/detail_packaging" element={<Detail_Packaging />} />
       <Route path="/detail_deliveries" element={<Detail_Deliveries />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }

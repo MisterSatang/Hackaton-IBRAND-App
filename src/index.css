@@ -171,6 +171,9 @@ body {
 .w-screen{
   min-width:100vw;
 }
+.h-screen-60{
+  min-height: 60vh;
+}
 
 @media (max-width:767px) {
   .hide-sidebar{
