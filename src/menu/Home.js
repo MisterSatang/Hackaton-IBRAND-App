@@ -5,6 +5,7 @@ import Card from "../component/Card";
 import axios from "axios";
 import styled from "styled-components";
 import DonotHave from "../component/DonotHave";
+import Loading from "../component/Loading";
 
 export function Home({ className }) {
   const [factory, setFactory] = useState([]);
@@ -17,23 +18,27 @@ export function Home({ className }) {
   const [ingre, setingre] = useState("");
   const [ingreDisplay, setingreDisplay] = useState([]);
   const [user, setUser] = useState("");
-
-  useEffect(() => {
-    async function getfactory() {
-      const factory = await axios.get(
-        `http://localhost:8000/factory/filter?province=${province}&catagory_english=${catagory}&product_have=${product}&p_ingre=${ingre}`
-      );
-      setFactory(factory.data);
-    }
-    getfactory();
-  }, [province, product, catagory, ingre]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     async function getUser() {
-      const user = await axios.get(`http://localhost:8000/user/1`);
-      setUser(user.data);
+      try {
+        setLoading(true);
+        const user = await axios.get(`http://localhost:8000/user/1`);
+        const factory = await axios.get(
+          `http://localhost:8000/factory/filter?province=${province}&catagory_english=${catagory}&product_have=${product}&p_ingre=${ingre}`
+        );
+        setFactory(factory.data);
+        setUser(user.data);
+      } catch (e) {
+        console.error(e);
+
+      } finally {
+        setLoading(false);
+      }
     }
     getUser();
+
   }, []);
 
   useEffect(() => {
@@ -87,6 +92,8 @@ export function Home({ className }) {
   const Addingre = (event) => {
     setingre(event.target.value);
   };
+
+  if (loading) return <Loading />
 
   return (
     <Fragment>

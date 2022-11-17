@@ -3,6 +3,7 @@ import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import Card from "../component/Card";
 import DonotHave from "../component/DonotHave";
+import Loading from "../component/Loading";
 import axios from "axios";
 
 export default function Mylist() {
@@ -27,12 +28,11 @@ export default function Mylist() {
         setLoading(false);
       }
     }
-
     getUser();
 
   }, []);
 
-  if (loading) return <div>Loading</div>
+  if (loading) return <Loading />
 
   return (
     <Fragment>
