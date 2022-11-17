@@ -3,7 +3,7 @@ import { Fragment } from "react";
 export default function Footer() {
   return (
     <Fragment>
-      <div className="container-fluid pt-5 px-0 bg-body-purple">
+      <div className="container-fluid pt-5 px-0 bg-body-purple position-absolute bottom-0 start-50 translate-middle-x">
         <footer className="text-white text-center text-lg-start bg-navbar">
           <div className="container p-4">
             <div className="row mt-4">
