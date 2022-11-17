@@ -16,6 +16,7 @@ import Pledge from "./menu/Pledge";
 import Packaging from "./menu/Packaging";
 import Pays from "./menu/Pays";
 //FIXME: Admin
+import Admin from "./admin/Admin";
 import TB_Product from "./admin/TB_1_Product";
 import TB_Deliveries from "./admin/TB_8_Deliveries";
 import TB_FDA from "./admin/TB_5_FDA";
@@ -59,6 +60,7 @@ export default function App() {
       <Route path="/pays" element={<Pays />} />
 
       {/* admin */}
+      <Route path="/admin" element={<Admin />} />
       <Route path="/tb_product" element={<TB_Product />} />
       <Route path="/tb_deliveries" element={<TB_Deliveries />} />
       <Route path="/tb_FDA" element={<TB_FDA />} />

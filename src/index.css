@@ -149,6 +149,9 @@ body {
 .border-card {
   border-radius: 0rem 0rem 0.8rem 0.8rem !important;
 }
+.rounded-cardMenuAdmin{
+  border-radius: 2rem 2rem 0 0 !important;
+}
 
 /* Home  */
 .font-6 {
@@ -187,4 +190,11 @@ body {
   .hide-toggle {
     display: none;
   }
+}
+.btn-primary{
+  background-color: #5c28b6 !important;
+  border: none !important;
+}
+.btn-primary:hover {
+  background-color: #46129f !important;
 }
