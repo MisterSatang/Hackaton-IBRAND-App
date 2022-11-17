@@ -109,8 +109,8 @@ export function Login({ className }) {
               r="63.504"
             />
           </svg>
-          <div className="container">
-            <div className="fw-bold text-purple fs-2 text-uppercase ps-4 pt-4 py-4">
+          <div className="container rounded-top">
+            <div className="fw-bold text-purple fs-2 text-uppercase ps-4  py-4">
               login ibrand
             </div>
             <form>
@@ -120,7 +120,7 @@ export function Login({ className }) {
             </form>
 
             <br />
-            <button className="mt-2 d-flex signin w-100 justify-content-center align-items-center fs-5">
+            <button className="mt-2 d-flex signin w-100 justify-content-center align-items-center fs-5 rounded-bottom">
               <div className="d-flex hover-signin">sign in</div>
             </button>
             <h3>your registration is complete ! </h3>
