@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 //FIXME: user
 import Home from "./menu/Home";
@@ -29,11 +30,22 @@ import Detail_Packaging from "./admin/Detail_Packaging";
 import Detail_Deliveries from "./admin/Detail_Deliveries";
 
 export default function App() {
+  const [user, setUser] = useState('');
+
+  useEffect(() => {
+    async function getUser() {
+      const user = await axios.get
+        (`http://localhost:8000/user/1`);
+      setUser(user.data);
+    }
+    getUser();
+  }, []);
+
   return (
     <Routes>
       {/* user */}
       <Route path="/" element={<Home />} />
-      <Route path="/mylist" element={<Mylist />} />
+      <Route path="/mylist" element={<Mylist user={user} />} />
       <Route path="/order" element={<Order />} />
       <Route path="/qualityProduct" element={<QualityProduct />} />
       <Route path="/detail" element={<Detail />} />
