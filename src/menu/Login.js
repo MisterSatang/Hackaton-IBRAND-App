@@ -110,7 +110,9 @@ export function Login({ className }) {
             />
           </svg>
           <div className="container">
-            <h2>login ibrand</h2>
+            <div className="fw-bold text-purple fs-2 text-uppercase ps-4 pt-4 py-4">
+              login ibrand
+            </div>
             <form>
               <input type="text" className="username" placeholder="username" />
               <br />
