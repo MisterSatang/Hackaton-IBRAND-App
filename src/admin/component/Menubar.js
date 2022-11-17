@@ -9,8 +9,10 @@ export default function Menubar() {
             IBRAND
           </div>
           <div className="text-light ps-4 py-3 fs-5 bg-dark-20">
+            <i class="bi bi-house-fill"></i> Home
+          </div>
+          <div className="text-light ps-4 py-3 fs-5 ">
             <i class="bi bi-1-circle-fill me-2"></i> On Product
-            <span class="badge bg-danger ms-3">1+</span>
           </div>
           <div className="text-light ps-4 py-3 fs-5 ">
             <i class="bi bi-2-circle-fill me-2"></i> On Testing

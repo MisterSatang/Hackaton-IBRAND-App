@@ -16,6 +16,7 @@ import Pledge from "./menu/Pledge";
 import Packaging from "./menu/Packaging";
 import Pays from "./menu/Pays";
 //FIXME: Admin
+import Admin from "./admin/Admin";
 import TB_Product from "./admin/TB_1_Product";
 import TB_Deliveries from "./admin/TB_8_Deliveries";
 import TB_FDA from "./admin/TB_5_FDA";
@@ -27,6 +28,10 @@ import TB_Produce from "./admin/TB_6_Produce";
 import Detail_Product from "./admin/Detail_Product";
 import Detail_Packaging from "./admin/Detail_Packaging";
 import Detail_Deliveries from "./admin/Detail_Deliveries";
+
+//FIXME: Login
+import Login from "./menu/Login";
+import Loading from "./component/Loading";
 
 //FIXME: 404
 import PageNotFound from "./menu/PageNotFound";
@@ -59,6 +64,7 @@ export default function App() {
       <Route path="/pays" element={<Pays />} />
 
       {/* admin */}
+      <Route path="/admin" element={<Admin />} />
       <Route path="/tb_product" element={<TB_Product />} />
       <Route path="/tb_deliveries" element={<TB_Deliveries />} />
       <Route path="/tb_FDA" element={<TB_FDA />} />
@@ -70,6 +76,12 @@ export default function App() {
       <Route path="/detail_product" element={<Detail_Product />} />
       <Route path="/detail_packaging" element={<Detail_Packaging />} />
       <Route path="/detail_deliveries" element={<Detail_Deliveries />} />
+
+      {/* Login */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/loading" element={<Loading />} />
+
+      {/* NotFound */}
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

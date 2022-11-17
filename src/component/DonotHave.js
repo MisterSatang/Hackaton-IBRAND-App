@@ -5,8 +5,10 @@ export default function DonotHave() {
     <Fragment>
       <div className="h-screen-60 d-flex align-items-center justify-content-center">
         <div class="d-flex align-items-center justify-content-center">
-          <i class="bi bi-x-octagon-fill display-1 me-4 text-danger"></i>
-          <div class="display-1 fw-bold text-purple">Dont'Have Product...</div>
+          <img src="icon.png" class="img-dontHave"></img>
+          <div class="display-4 fw-bold text-purple ms-3">
+            Dont'Have Product...
+          </div>
         </div>
       </div>
     </Fragment>

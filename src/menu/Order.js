@@ -25,7 +25,7 @@ export default function Order() {
           <div className="col-10">
             <div className="row">
               {/* CARD*/}
-              <div className="col-3 py-0 px-2 mt-4">
+              <div className="col-xl-3 col-lg-4 col-md-5 col-12 py-0 px-2 mt-4">
                 <div className="shadow-lg rounded-4 bg-light h-100">
                   <img
                     src="asset/factory/factory-01.jpg"

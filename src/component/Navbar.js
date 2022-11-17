@@ -7,7 +7,7 @@ export default function Navbar() {
       <nav class="navbar navbar-expand-lg bg-navbar p-3 px-5 shadow">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="#">
-            <img src="logo.png" class="size-logo"></img>
+            <img src="logowhite.png" class="size-logo"></img>
           </a>
           <button
             class="navbar-toggler"
@@ -18,13 +18,13 @@ export default function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon "></span>
           </button>
           <div class="collapse navbar-collapse " id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto bg-dark-20 rounded-pill ">
+            <ul class="navbar-nav ms-auto bg-dark-20 rounded-5 ">
               <Link
                 to="/"
-                class="nav-link active bg-dark-20 rounded-pill p-2 px-5 text-light border-0"
+                class="nav-link active bg-dark-20 rounded-menu p-2 px-5 text-light border-0"
               >
                 <div class="nav-menu">
                   <i class="bi bi-house-door me-1 text-wheat"></i>Home
