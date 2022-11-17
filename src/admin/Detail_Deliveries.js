@@ -9,9 +9,7 @@ export function Detail_Deliveries({ className }) {
       <div className={className}>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-xl-2 col-lg-3 col-md-4 col-12 p-0 bg-navbar h-screen">
-              <Sidebar />
-            </div>
+            <Sidebar />
             <div className="col bg-body-purple p-0">
               <div className="fs-2 fw-bold mt-5 ms-5">Detail Testing</div>
               <div className="fs-4 fw-bold ms-5">Order Number : 0215645167</div>

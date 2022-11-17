@@ -10,9 +10,7 @@ export function TB_5_FDA({ className }) {
       <div className={className}>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-xl-2 col-lg-3 col-md-4 col-12 p-0 bg-navbar h-screen">
-              <Sidebar />
-            </div>
+            <Sidebar />
             <div className="col bg-body-purple">
               <div className="fs-2 fw-bold mt-5 ms-5">On FDA</div>
               <div class="input-group flex-nowrap my-3">

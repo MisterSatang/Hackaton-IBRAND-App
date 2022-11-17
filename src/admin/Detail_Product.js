@@ -9,9 +9,7 @@ export function Detail_Product({ className }) {
       <div className={className}>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-xl-2 col-lg-3 col-md-4 col-12 p-0 bg-navbar h-screen">
-              <Sidebar />
-            </div>
+            <Sidebar />
             <div className="col bg-body-purple p-0">
               <div className="fs-2 fw-bold mt-5 ms-5">Detail Product</div>
               <div className="fs-4 fw-bold ms-5">Order Number : 0215645167</div>
@@ -87,6 +85,20 @@ export function Detail_Product({ className }) {
                   </span>
                   <span className="input-group-text fw-semibold">
                     Unit/Price
+                  </span>
+                </div>
+                <div className="input-group w-20rem ps-5 py-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Dollar amount (with dot and two decimal places)"
+                    placeholder="250"
+                  />
+                  <span className="input-group-text">
+                    <i class="bi bi-currency-bitcoin"></i>
+                  </span>
+                  <span className="input-group-text fw-semibold">
+                    Testing Price
                   </span>
                 </div>
 
