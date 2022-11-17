@@ -7,7 +7,7 @@ export default function Navbar() {
       <nav class="navbar navbar-expand-lg bg-navbar p-3 px-5 shadow">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="#">
-            <img src="logo.png" class="size-logo"></img>
+            <img src="logowhite.png" class="size-logo"></img>
           </a>
           <button
             class="navbar-toggler"
