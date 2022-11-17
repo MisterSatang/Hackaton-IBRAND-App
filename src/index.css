@@ -158,14 +158,19 @@ body {
 .w-20rem{
   width: 20rem !important;
 }
-.h-screen{
-  min-height: 100vh;
-}
+
 /* @media screen and (max-width: 960px) {
   .sidebar{
     display: none;
   }
 } */
+
+.h-screen {
+  min-height: 100vh;
+}
+.w-screen{
+  min-width:100vw;
+}
 
 @media (max-width:767px) {
   .hide-sidebar{

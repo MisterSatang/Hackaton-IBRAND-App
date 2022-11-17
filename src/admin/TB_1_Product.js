@@ -8,7 +8,7 @@ export function TB_1_Product({ className }) {
   return (
     <Fragment>
       <div className={className}>
-        <div className="container-fluid bg-body-purple h-screen">
+        <div className="container-fluid bg-body-purple h-screen w-screen">
           <div className="row">
             <Sidebar />
             <div className="col">
