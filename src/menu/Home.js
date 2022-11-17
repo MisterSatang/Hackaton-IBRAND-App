@@ -15,6 +15,7 @@ export function Home({ className }) {
   const [catagoryDisplay, setcatagoryDisplay] = useState([]);
   const [ingre, setingre] = useState('');
   const [ingreDisplay, setingreDisplay] = useState([]);
+  const [user, setUser] = useState('');
 
   useEffect(() => {
     async function getfactory() {
@@ -24,6 +25,15 @@ export function Home({ className }) {
     }
     getfactory();
   }, [province, product, catagory, ingre]);
+
+  useEffect(() => {
+    async function getUser() {
+      const user = await axios.get
+        (`http://localhost:8000/user/1`);
+      setUser(user.data);
+    }
+    getUser();
+  }, []);
 
   useEffect(() => {
     async function getprovince() {
@@ -148,7 +158,7 @@ export function Home({ className }) {
                   factory.length > 0 ? (
                     <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                       {factory.map((factoryData) => (
-                        <Card key={factoryData.fac_id} factory={factoryData} />
+                        <Card key={factoryData.fac_id} factory={factoryData} watchlist={user[0].watchlist} />
                       ))}
                     </div>
                   ) : (

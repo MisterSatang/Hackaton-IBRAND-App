@@ -1,6 +1,32 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import axios from "axios";
 
-export default function Card({ factory }) {
+export default function Card({ factory, watchlist }) {
+  const [click, setClick] = useState('');
+  const [y, setY] = useState(false);
+
+  const onClick = () => {
+    if (!y && (watchlist.includes(parseInt(factory.fac_id))) == false) {
+      axios.put("http://localhost:8000/user/watchlist/1", {
+        fac_id: parseInt(factory.fac_id)
+      }).then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+      setY(true);
+    } else {
+      axios.put("http://localhost:8000/user/watchlist/delete/1", {
+        fac_id: parseInt(factory.fac_id)
+      }).then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+      window.location.reload();
+    }
+  }
+
   return (
     <Fragment>
       {/* CARD*/}
@@ -11,7 +37,7 @@ export default function Card({ factory }) {
               src={factory.image[0]}
               class="card-img-top border-image"
             />
-            <i class="bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 text-black-50"></i>
+            <i class={`btn bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 ${watchlist.includes(parseInt(factory.fac_id)) || y ? `text-danger` : click}`} id="x" onClick={onClick}></i>
           </div>
           <div class="px-3">
             <div class="d-flex mt-2 fw-bold font-6">{factory.title}</div>
@@ -39,6 +65,6 @@ export default function Card({ factory }) {
         </div>
       </div>
       {/* END CARD*/}
-    </Fragment>
+    </Fragment >
   );
 }
