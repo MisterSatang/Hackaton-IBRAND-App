@@ -9,12 +9,6 @@ export function Login({ className }) {
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
 
-  useEffect(() => {
-    if (!token) return;
-    window.location.href = "/";
-  }, [token]);
-  const [userRank, setUserRank] = useState('');
-
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -30,6 +24,8 @@ export function Login({ className }) {
       console.error(error);
     }
   };
+
+  console.log(email);
 
   return (
     <Fragment>
@@ -55,29 +51,30 @@ export function Login({ className }) {
                   <div className="d-flex ms-5 my-4 fs-2 fw-bold text-purple text-uppercase">
                     Login IBRAND
                   </div>
-                  <div className="d-flex flex-column mx-2 mb-5">
-                    <input
-                      type="email"
-                      className="d-flex username p-3 bg-transparent border-1 border-bottom"
-                      placeholder="username"
-                    />
-                    <br />
-                    <input
-                      type="password"
-                      className="d-flex pwd p-3 bg-transparent border-1 border-bottom"
-                      placeholder="password"
-                    />
-                  </div>
-                  <div className="btn d-flex fs-4 p-3 fw-semibold text-light bg-navbar text-uppercase border-card justify-content-center">
-                    <div className="d-flex">Sign in</div>
-                  </div>
+                  <form onSubmit={onSubmit}>
+                    <div className="d-flex flex-column mx-2 mb-5">
+                      <input
+                        type="email"
+                        className="d-flex username p-3 bg-transparent border-1 border-bottom"
+                        placeholder="username" onChange={e => setEmail(e.target.value)} />
+                      <br />
+                      <input
+                        type="password"
+                        className="d-flex pwd p-3 bg-transparent border-1 border-bottom"
+                        placeholder="password" onChange={e => setPassword(e.target.value)}
+                      />
+                    </div>
+                    <button className="btn d-flex fs-4 p-3 fw-semibold text-light bg-navbar text-uppercase border-card justify-content-center w-100" >
+                      <div className="d-flex">Sign in</div>
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </Fragment>
+    </Fragment >
   );
 }
 export default styled(Login)`
