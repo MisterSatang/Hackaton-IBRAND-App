@@ -10,25 +10,19 @@ export function Login({ className }) {
   const [token, setToken] = useState("");
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
-
-
-  useEffect(() => {
-    if (!token) return
-    window.location.href = "/";
-  }, [token]);
+  const [userRank, setUserRank] = useState('');
 
   const onSubmit = async (e) => {
-    console.log(email);
     try {
       e.preventDefault();
       const token = await axios.post("http://localhost:8000/login", {
         email,
         password,
       });
-      console.log(token);
-      localStorage.setItem("status", JSON.stringify(token.data.token));
-      setToken(JSON.parse(localStorage.getItem("status")));
-      window.location.href = "/";
+      localStorage.setItem("status", token.data.token);
+      localStorage.setItem("admin", token.data.rank);
+      setToken(localStorage.getItem("status"));
+      token.data.rank == 1 ? window.location.href = "/admin" : window.location.href = "/"
     } catch (error) {
       console.error(error);
     }

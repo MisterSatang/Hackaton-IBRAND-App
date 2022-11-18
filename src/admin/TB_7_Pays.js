@@ -1,10 +1,20 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 import styled from "styled-components";
 import Sidebar from "./component/Sidebar";
 import TableNoneDetail from "./component/TableNoneDetail";
 
 export function TB_7_Pays({ className }) {
+  const [token, setToken] = useState(localStorage.getItem("status"));
+  const [admin, setAdmin] = useState(parseInt(localStorage.getItem("admin")));
+
+  if (!token) {
+    window.location.href = "/login";
+  }
+
+  if (admin != 1) {
+    window.location.href = "/";
+  }
   return (
     <Fragment>
       <div className={className}>
