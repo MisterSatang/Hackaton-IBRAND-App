@@ -1,7 +1,13 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const [token, setToken] = useState(localStorage.getItem("status"));
+
+  const x = () => {
+    localStorage.clear();
+  }
+
   return (
     <Fragment>
       <nav class="navbar navbar-expand-lg bg-navbar p-3 px-5 shadow">
@@ -30,29 +36,41 @@ export default function Navbar() {
                   <i class="bi bi-house-door me-1 text-wheat"></i>Home
                 </div>
               </Link>
-              <Link
-                to="/mylist"
-                class="nav-link active bg-transparent p-2 mx-4 text-light border-0"
-              >
-                <div>
-                  {/* <i class="bi bi-heart me-1"></i> */}
-                  Mylist
-                </div>
-              </Link>
-              <Link
-                to="/order"
-                class="nav-link active bg-transparent p-2 mx-4 text-light border-0"
-              >
-                <div>
-                  {/* <i class="bi bi-card-checklist  me-1"></i> */}
-                  Order
-                </div>
-              </Link>
+              {
+                token ? <Link
+                  to="/mylist"
+                  class="nav-link active bg-transparent p-2 mx-4 text-light border-0"
+                >
+                  <div>
+                    {/* <i class="bi bi-heart me-1"></i> */}
+                    Mylist
+                  </div>
+                </Link> : null
+              }
+              {
+                token ? <Link
+                  to="/order"
+                  class="nav-link active bg-transparent p-2 mx-4 text-light border-0"
+                >
+                  <div>
+                    Order
+                  </div>
+                </Link> : null
+              }
+
             </ul>
             <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
-              <button type="button" class="btn btn-outline-light rounded-pill">
-                Login<i class="ms-2 bi bi-person-circle"></i>
-              </button>
+              {
+                token ? <Link to="/login" onClick={x}>
+                  <button type="button" class="btn btn-outline-light rounded-pill">
+                    Logout
+                  </button>
+                </Link> : <Link to="/login">
+                  <button type="button" class="btn btn-outline-light rounded-pill">
+                    Login<i class="ms-2 bi bi-person-circle"></i>
+                  </button>
+                </Link>
+              }
             </ul>
           </div>
         </div>

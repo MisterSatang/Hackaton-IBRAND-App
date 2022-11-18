@@ -15,8 +15,10 @@ export function Home({ className }) {
   const [catagory, setcatagory] = useState("");
   const [catagoryDisplay, setcatagoryDisplay] = useState([]);
   const [ingre, setingre] = useState("");
+  const [data_user, setdata_user] = useState(true);
   const [ingreDisplay, setingreDisplay] = useState([]);
   const [user, setUser] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("status"));
 
   useEffect(() => {
     async function getfactory() {
@@ -28,13 +30,19 @@ export function Home({ className }) {
     getfactory();
   }, [province, product, catagory, ingre]);
 
-  useEffect(() => {
-    async function getUser() {
-      const user = await axios.get(`http://localhost:8000/user/1`);
-      setUser(user.data);
-    }
-    getUser();
-  }, []);
+  async function getUser_auth() {
+    const user = await axios.get(`http://localhost:8000/user/getuser`, {
+      headers: {
+        token: token
+      }
+    });
+    setUser(user.data);
+  }
+
+  if (token && data_user) {
+    getUser_auth();
+    setdata_user(false);
+  }
 
   useEffect(() => {
     async function getprovince() {
@@ -185,7 +193,7 @@ export function Home({ className }) {
                       <Card
                         key={factoryData.fac_id}
                         factory={factoryData}
-                        watchlist={user.watchlist}
+                        user={user}
                       />
                     ))}
                   </div>

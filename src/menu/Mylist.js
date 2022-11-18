@@ -8,14 +8,20 @@ import axios from "axios";
 
 export default function Mylist() {
   const [factory, setFactory] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [token, setToken] = useState(localStorage.getItem("status"));
+  const [data_user, setdata_user] = useState(true);
 
   useEffect(() => {
     async function getUser() {
       try {
         setLoading(true);
-        const user = await axios.get(`http://localhost:8000/user/1`);
+        const user = await axios.get(`http://localhost:8000/user/getuser`, {
+          headers: {
+            token: token
+          }
+        });
         const factory = await axios.get(
           `http://localhost:8000/factory/watchlist?search=${user.data.watchlist}`
         );
@@ -29,7 +35,6 @@ export default function Mylist() {
       }
     }
     getUser();
-
   }, []);
 
   if (loading) return <Loading />
@@ -62,7 +67,7 @@ export default function Mylist() {
                     <Card
                       key={factoryData.fac_id}
                       factory={factoryData}
-                      watchlist={user.watchlist}
+                      user={user}
                     />
                   ))}
                 </div>

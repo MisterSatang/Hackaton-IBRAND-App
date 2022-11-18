@@ -25,25 +25,25 @@ export function Login({ className }) {
     }
   };
 
-  console.log(email);
-
   return (
     <Fragment>
       <div className={className}>
         <div className="container-fluid">
           <div className="row p-0">
             <div className="col-xl-3 col-lg-4 col-md-5 col-12 bg-navbar h-nav-login">
-              <div className="d-flex justify-content-center align-items-center h-100">
-                <div class="btn rounded-pill w-50 fs-4 border-1 border-light text-light p-nav-login">
-                  <div>
-                    <img src="logowhite.png" class="size-logo"></img>
+              <Link to="/">
+                <div className="d-flex justify-content-center align-items-center h-100">
+                  <div class="btn rounded-pill w-50 fs-4 border-1 border-light text-light p-nav-login">
+                    <div>
+                      <img src="logowhite.png" class="size-logo"></img>
+                    </div>
+                    Home<i class="ms-2 bi bi-house-fill"></i>
                   </div>
-                  Home<i class="ms-2 bi bi-house-fill"></i>
+                  <div className="text-light fs-1 ms-2">
+                    <i class="bi bi-caret-right-fill"></i>
+                  </div>
                 </div>
-                <div className="text-light fs-1 ms-2">
-                  <i class="bi bi-caret-right-fill"></i>
-                </div>
-              </div>
+              </Link>
             </div>
             <div className="col bg-login">
               <div className="d-flex justify-content-center align-items-center h-login">

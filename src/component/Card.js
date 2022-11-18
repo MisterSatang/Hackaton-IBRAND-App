@@ -1,13 +1,21 @@
 import { Fragment, useState } from "react";
 import axios from "axios";
 
-export default function Card({ factory, watchlist }) {
+export default function Card({ factory, user }) {
   const [click, setClick] = useState('');
   const [y, setY] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem("status"));
+  const [watchlist, setwatchlist] = useState([]);
+  const [data, setData] = useState(true);
+
+  if (token && data) {
+    setwatchlist(user.watchlist);
+    setData(false);
+  }
 
   const onClick = () => {
     if (!y && (watchlist.includes(parseInt(factory.fac_id))) == false) {
-      axios.put("http://localhost:8000/user/watchlist/1", {
+      axios.put(`http://localhost:8000/user/watchlist/${user.user_id}`, {
         fac_id: parseInt(factory.fac_id)
       }).then((response) => {
         console.log(response);
@@ -16,7 +24,7 @@ export default function Card({ factory, watchlist }) {
       });
       setY(true);
     } else {
-      axios.put("http://localhost:8000/user/watchlist/delete/1", {
+      axios.put(`http://localhost:8000/user/watchlist/delete/${user.user_id}`, {
         fac_id: parseInt(factory.fac_id)
       }).then((response) => {
         console.log(response);
@@ -37,7 +45,9 @@ export default function Card({ factory, watchlist }) {
               src={factory.image[0]}
               class="card-img-top border-image"
             />
-            <i class={`btn bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 ${watchlist.includes(parseInt(factory.fac_id)) || y ? `text-danger` : click}`} id="x" onClick={onClick}></i>
+            {
+              token ? <i class={`btn bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 ${watchlist.includes(parseInt(factory.fac_id)) || y ? `text-danger` : click}`} id="x" onClick={onClick}></i> : null
+            }
           </div>
           <div class="px-3">
             <div class="d-flex mt-2 fw-bold font-6">{factory.title}</div>
