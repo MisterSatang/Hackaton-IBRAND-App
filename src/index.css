@@ -183,9 +183,24 @@ body {
 .rounded-menu{
   border-radius: 2rem 2rem 2rem 2rem;
 }
+.p-nav-login {
+  padding: 4rem 0 !important;
+}
 @media (max-width:767px) {
   .hide-sidebar{
     display: none;
+  }
+  .h-login {
+    height: 80vh !important;
+  }
+  .h-nav-login {
+    height: 20vh !important;
+  }
+  .card-login {
+    width: 80vw !important;
+  }
+  .p-nav-login {
+    padding: 1rem !important;
   }
 }
 @media (max-width:990px) {
@@ -199,6 +214,8 @@ body {
     display: none;
   }
 }
+
+
 .btn-primary{
   background-color: #5c28b6 !important;
   border: none !important;
@@ -208,4 +225,19 @@ body {
 }
 .hover-signin:hover{
   margin-left: 3rem;
+}
+.bg-login{
+  background-image: url("../public/layered-waves-haikei.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  object-fit: cover;
+}
+.h-login{
+  height: 100vh;
+}
+.card-login{
+  width: 50vw;
+}
+.h-nav-login{
+  height: 100vh;
 }
