@@ -21,6 +21,7 @@ export function Home({ className }) {
   const [token, setToken] = useState(localStorage.getItem("status"));
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     async function getfactory() {
       const factory = await axios.get(
         `http://localhost:8000/factory/filter?province=${province}&catagory_english=${catagory}&product_have=${product}&p_ingre=${ingre}`

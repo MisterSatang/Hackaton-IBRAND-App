@@ -31,8 +31,8 @@ export function Login({ className }) {
         <div className="container-fluid">
           <div className="row p-0">
             <div className="col-xl-3 col-lg-4 col-md-5 col-12 bg-navbar h-nav-login">
-              <Link to="/">
-                <div className="d-flex justify-content-center align-items-center h-100">
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                <div className="d-flex justify-content-center align-items-center h-100 ">
                   <div class="btn rounded-pill w-50 fs-4 border-1 border-light text-light p-nav-login">
                     <div>
                       <img src="logowhite.png" class="size-logo"></img>

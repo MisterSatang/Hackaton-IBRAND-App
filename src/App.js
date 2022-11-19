@@ -37,24 +37,14 @@ import Loading from "./component/Loading";
 import PageNotFound from "./menu/PageNotFound";
 
 export default function App() {
-  const [user, setUser] = useState("");
-
-  useEffect(() => {
-    async function getUser() {
-      const user = await axios.get(`http://localhost:8000/user/1`);
-      setUser(user.data);
-    }
-    getUser();
-  }, []);
-
   return (
     <Routes>
       {/* user */}
       <Route path="/" element={<Home />} />
-      <Route path="/mylist" element={<Mylist user={user} />} />
+      <Route path="/mylist" element={<Mylist />} />
       <Route path="/order" element={<Order />} />
-      <Route path="/qualityProduct" element={<QualityProduct />} />
-      <Route path="/detail" element={<Detail />} />
+      <Route path="/qualityProduct/:fac_id/:product_id" element={<QualityProduct />} />
+      <Route path="/detail/:fac_id" element={<Detail />} />
       <Route path="/wait" element={<Wait />} />
       <Route path="/appraise" element={<Appraise />} />
       <Route path="/pretester2-1" element={<Pretester2_1 />} />
