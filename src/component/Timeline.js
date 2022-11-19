@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 
+const step = 6;
+
 export default function Navbar() {
   return (
     <Fragment>
@@ -22,11 +24,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase text-primary">
+                          <div
+                            class={`${
+                              step >= 1
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 1 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 1
                           </p>
-                          <p class="fs-6 mb-1 text-primary">เลือกสูตร</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 1 ? "text-primary" : ""
+                            }`}
+                          >
+                            เลือกสูตร
+                          </p>
                         </div>
                       </div>
                       <div class="timeline-step">
@@ -36,11 +54,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle-disable"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase">
+                          <div
+                            class={`${
+                              step >= 2
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 2 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 2
                           </p>
-                          <p class="fs-6 mb-1">ประเมินราคา</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 2 ? "text-primary" : ""
+                            }`}
+                          >
+                            ประเมินราคา
+                          </p>
                         </div>
                       </div>
                       <div class="timeline-step">
@@ -50,11 +84,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle-disable"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase">
+                          <div
+                            class={`${
+                              step >= 3
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 3 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 3
                           </p>
-                          <p class="fs-6 mb-1">สินค้าทดสอบ</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 3 ? "text-primary" : ""
+                            }`}
+                          >
+                            สินค้าทดสอบ
+                          </p>
                         </div>
                       </div>
                       <div class="timeline-step">
@@ -64,11 +114,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle-disable"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase">
+                          <div
+                            class={`${
+                              step >= 4
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 4 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 4
                           </p>
-                          <p class="fs-6 mb-1">มัดจำ</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 4 ? "text-primary" : ""
+                            }`}
+                          >
+                            มัดจำ
+                          </p>
                         </div>
                       </div>
                       <div class="timeline-step">
@@ -78,11 +144,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle-disable"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase">
+                          <div
+                            class={`${
+                              step >= 5
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 5 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 5
                           </p>
-                          <p class="fs-6 mb-1">เลือกเเพคเกจ</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 5 ? "text-primary" : ""
+                            }`}
+                          >
+                            เลือกเเพคเกจ
+                          </p>
                         </div>
                       </div>
                       <div class="timeline-step">
@@ -92,11 +174,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle-disable"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase">
+                          <div
+                            class={`${
+                              step >= 6
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 6 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 6
                           </p>
-                          <p class="fs-6 mb-1">ขอ อย.</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 6 ? "text-primary" : ""
+                            }`}
+                          >
+                            ขอ อย.
+                          </p>
                         </div>
                       </div>
                       <div class="timeline-step">
@@ -106,11 +204,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle-disable"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase">
+                          <div
+                            class={`${
+                              step >= 7
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 7 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 7
                           </p>
-                          <p class="fs-6 mb-1">ผลิตสินค้า</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 7 ? "text-primary" : ""
+                            }`}
+                          >
+                            ผลิตสินค้า
+                          </p>
                         </div>
                       </div>
                       <div class="timeline-step">
@@ -120,11 +234,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle-disable"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase">
+                          <div
+                            class={`${
+                              step >= 8
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 8 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 8
                           </p>
-                          <p class="fs-6 mb-1">จ่ายเงิน</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 8 ? "text-primary" : ""
+                            }`}
+                          >
+                            จ่ายเงิน
+                          </p>
                         </div>
                       </div>
                       <div class="timeline-step">
@@ -134,11 +264,27 @@ export default function Navbar() {
                           data-trigger="hover"
                           data-placement="top"
                         >
-                          <div class="inner-circle-disable"></div>
-                          <p class="fs-6 fw-bold mt-3 mb-1 text-uppercase">
+                          <div
+                            class={`${
+                              step >= 9
+                                ? "inner-circle"
+                                : "inner-circle-disable"
+                            }`}
+                          ></div>
+                          <p
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
+                              step >= 9 ? "text-primary" : ""
+                            }`}
+                          >
                             Step 9
                           </p>
-                          <p class="fs-6 mb-1">ส่งสินค้า</p>
+                          <p
+                            class={`fs-6 mb-1 ${
+                              step >= 9 ? "text-primary" : ""
+                            }`}
+                          >
+                            ส่งสินค้า
+                          </p>
                         </div>
                       </div>
                     </div>
