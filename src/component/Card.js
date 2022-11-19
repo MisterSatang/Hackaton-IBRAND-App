@@ -7,6 +7,7 @@ export default function Card({ factory, user }) {
   const [y, setY] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("status"));
   const [watchlist, setwatchlist] = useState([]);
+  const [includes, setIncludes] = useState([]);
   const [data, setData] = useState(true);
 
   if (token && data) {
@@ -36,6 +37,8 @@ export default function Card({ factory, user }) {
     }
   }
 
+  console.log(watchlist);
+
   return (
     <Fragment>
       {/* CARD*/}
@@ -48,7 +51,7 @@ export default function Card({ factory, user }) {
                 class="card-img-top border-image"
               />
               {
-                token ? <i class={`btn bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 ${watchlist.includes(parseInt(factory.fac_id)) || y ? `text-danger` : click}`} id="x" onClick={onClick}></i> : null
+                token ? <i class={`btn bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 z-100 ${watchlist.includes(parseInt(factory.fac_id)) || y ? `text-danger` : click}`} id="x" onClick={onClick}></i> : null
               }
             </div>
             <div class="px-3">

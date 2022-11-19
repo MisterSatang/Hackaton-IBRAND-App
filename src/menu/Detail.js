@@ -103,7 +103,7 @@ export default function Detail() {
             <div className=" fs-5 fw-bold text-uppercase mt-3">
               Detail Product
             </div>
-            <div className="row p-0 m-0 gap-2">
+            <div className="row p-0 m-0">
               {product.length > 0 ? (
                 <>
                   {product.map((factoryData) => (
@@ -113,7 +113,6 @@ export default function Detail() {
               ) : (
                 <div></div>
               )}
-
             </div>
             <div className="d-flex justify-content-between mt-4">
               <div className="d-flex">

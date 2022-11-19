@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductCard from "../component/ProductCard";
 import Detail_productQality from "../component/Detail_productQality";
+import { Link } from "react-router-dom";
 
 export default function QualityProduct() {
   let { fac_id, product_id } = useParams();
@@ -13,8 +14,9 @@ export default function QualityProduct() {
   const [factory, setFactory] = useState([]);
   const [image, setimage] = useState([]);
   const [product, setproduct] = useState([]);
-  const [detail, setdetail] = useState([])
+  const [detail, setdetail] = useState("");
   const x = parseInt(product_id.slice(-1));
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     async function getfactory() {
@@ -33,6 +35,17 @@ export default function QualityProduct() {
   }
 
 
+  useEffect(() => {
+    async function getUser_auth() {
+      const user = await axios.get(`http://localhost:8000/user/getuser`, {
+        headers: {
+          token: token
+        }
+      });
+      setUser(user.data);
+    }
+    getUser_auth();
+  }, []);
 
   useEffect(() => {
     async function getfactory() {
@@ -41,7 +54,22 @@ export default function QualityProduct() {
     getfactory();
   }, []);
 
-  console.log(detail);
+  const onClickSend = () => {
+    console.log(detail);
+    console.log(product[x - 1]);
+    axios.post("http://localhost:8000/transaction", {
+      product: product[x - 1],
+      qualityComment_customer: detail,
+      step: 1,
+      user_id: user._id,
+      user_name: user.first_name,
+      fac_id: fac_id
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
   return (
     <Fragment>
@@ -79,7 +107,7 @@ export default function QualityProduct() {
             <div className="d-flex fs-5 fw-bold text-uppercase">
               Step 1 : Select quality Product
             </div>
-            <div className="row p-0 m-0 gap-2">
+            <div className="row p-0 m-0">
               {product.length > 0 ? (
                 <>
                   {product.map((factoryData) => (
@@ -120,9 +148,11 @@ export default function QualityProduct() {
               <div className="d-flex justify-content-between mt-4">
                 <div className="d-flex"></div>
                 <div className="d-flex">
-                  <button type="button" class="btn btn-primary px-5 mt-4">
-                    SEND<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
-                  </button>
+                  <Link to="/wait">
+                    <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
+                      SEND<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

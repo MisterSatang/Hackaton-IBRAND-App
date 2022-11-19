@@ -1,9 +1,15 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import Timeline from "../component/Timeline";
 
 export default function Wait() {
+  useEffect(() => {
+    async function getfactory() {
+      window.scrollTo(0, 0)
+    }
+    getfactory();
+  }, []);
   return (
     <Fragment>
       <Navbar />
