@@ -39,6 +39,8 @@ export default function Mylist() {
 
   if (loading) return <Loading />
 
+  console.log(factory);
+
   return (
     <Fragment>
       <Navbar />

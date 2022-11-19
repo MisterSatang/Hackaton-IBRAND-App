@@ -1,15 +1,35 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import Timeline from "../component/Timeline";
+import { useParams } from 'react-router-dom';
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Wait() {
+  let { fac_id, status } = useParams();
+  const [factory, setFactory] = useState([]);
+
+  console.log(fac_id, status);
+  useEffect(() => {
+    async function getfactory() {
+      const factory = await axios.get(
+        `http://localhost:8000/factory/search/${fac_id}`
+      );
+      setFactory(factory.data);
+    }
+    getfactory();
+  }, []);
+
   useEffect(() => {
     async function getfactory() {
       window.scrollTo(0, 0)
     }
     getfactory();
   }, []);
+
+  console.log(factory);
+
   return (
     <Fragment>
       <Navbar />
@@ -20,10 +40,10 @@ export default function Wait() {
             <div className="d-flex justify-content-between border-bottom border-primary border-2 pb-2">
               <div className="d-flex fs-4 fw-bold text-uppercase">
                 <i class="bi bi-buildings-fill fs-4 me-2"></i>
-                Top&Tang Company
+                {factory.title}
               </div>
               <div className="d-flex fs-4 fw-bold text-uppercase">
-                No. 0000123
+                {`No. ${factory._id}`}
               </div>
             </div>
           </div>
@@ -46,9 +66,11 @@ export default function Wait() {
             </div>
             <div className="d-flex justify-content-between">
               <div className="d-flex">
-                <button type="button" class="btn btn-primary px-5 mt-4">
-                  <i class="me-3 bi bi-arrow-left-circle-fill"></i>Back
-                </button>
+                <Link to="/order">
+                  <button type="button" class="btn btn-primary px-5 mt-4">
+                    <i class="me-3 bi bi-arrow-left-circle-fill"></i>Back
+                  </button>
+                </Link>
               </div>
               <div className="d-flex"></div>
             </div>

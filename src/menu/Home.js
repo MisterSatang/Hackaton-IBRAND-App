@@ -19,14 +19,22 @@ export function Home({ className }) {
   const [ingreDisplay, setingreDisplay] = useState([]);
   const [user, setUser] = useState("");
   const [token, setToken] = useState(localStorage.getItem("status"));
+  const [loadfav, setloadfav] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     async function getfactory() {
-      const factory = await axios.get(
-        `http://localhost:8000/factory/filter?province=${province}&catagory_english=${catagory}&product_have=${product}&p_ingre=${ingre}`
-      );
-      setFactory(factory.data);
+      try {
+        setloadfav(false);
+        const factory = await axios.get(
+          `http://localhost:8000/factory/filter?province=${province}&catagory_english=${catagory}&product_have=${product}&p_ingre=${ingre}`
+        );
+        setFactory(factory.data);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setloadfav(true);
+      }
     }
     getfactory();
   }, [province, product, catagory, ingre]);
@@ -96,6 +104,8 @@ export function Home({ className }) {
   const Addingre = (event) => {
     setingre(event.target.value);
   };
+
+  console.log(user);
 
   return (
     <Fragment>
@@ -188,7 +198,7 @@ export function Home({ className }) {
             <div className="col-1"></div>
             <div className="col-10">
               <div className="row">
-                {factory.length > 0 ? (
+                {factory.length > 0 && loadfav ? (
                   <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     {factory.map((factoryData) => (
                       <Card

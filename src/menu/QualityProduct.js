@@ -34,7 +34,6 @@ export default function QualityProduct() {
     window.location.href = "/login";
   }
 
-
   useEffect(() => {
     async function getUser_auth() {
       const user = await axios.get(`http://localhost:8000/user/getuser`, {
@@ -63,7 +62,9 @@ export default function QualityProduct() {
       step: 1,
       user_id: user._id,
       user_name: user.first_name,
-      fac_id: fac_id
+      fac_id: fac_id,
+      fac_title: factory.title,
+      status: "wating"
     }).then((response) => {
       console.log(response);
     }).catch((error) => {
@@ -148,7 +149,7 @@ export default function QualityProduct() {
               <div className="d-flex justify-content-between mt-4">
                 <div className="d-flex"></div>
                 <div className="d-flex">
-                  <Link to="/wait">
+                  <Link to={`/wait/wating/${factory.fac_id}`}>
                     <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
                       SEND<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
                     </button>
