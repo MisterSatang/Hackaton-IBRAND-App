@@ -31,6 +31,7 @@ import Detail_Deliveries from "./admin/Detail_Deliveries";
 import QualityProduct_fail from "./menu/QualityProduct_fail";
 import TB_3_2_Testing from "./admin/TB_3_2_Testing"
 import QualityProduct_fix from "./menu/QualityProduct_fix";
+import Detail_Product_Offer from "./admin/Detail_Product_Offer"
 //FIXME: Login
 import Login from "./menu/Login";
 import Loading from "./component/Loading";
@@ -69,6 +70,7 @@ export default function App() {
       <Route path="/tb_testing" element={<TB_Testing />} />
       <Route path="/tb_testing_2" element={<TB_3_2_Testing />} />
       <Route path="/detail_product/:tran_id" element={<Detail_Product />} />
+      <Route path="/detail_product_offer/:tran_id" element={<Detail_Product_Offer />} />
       <Route path="/detail_packaging" element={<Detail_Packaging />} />
       <Route path="/detail_deliveries" element={<Detail_Deliveries />} />
 

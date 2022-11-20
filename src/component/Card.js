@@ -34,18 +34,20 @@ export default function Card({ factory, user }) {
   return (
     <Fragment>
       {/* CARD*/}
-      <div className="col-xl-3 col-lg-4 col-md-5 col-12 py-0 px-2 mt-4">
+      <div className="col-xl-3 col-lg-4 col-md-5 col-12 py-0 px-2 mt-4 position-relative">
+        {
+          token && user.watchlist ? <i class={`btn bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 z-100 ${user.watchlist.includes(parseInt(factory.fac_id)) || y ? `text-danger` : click}`} id="x" onClick={onClick} ></i> : null
+        }
         <Link to={`/detail/${factory.fac_id}`} style={{ textDecoration: 'none' }}>
-          <div className="shadow-lg rounded-4 bg-light h-100">
-            <div class="position-relative">
-              <img
-                src={factory.image[0]}
-                class="card-img-top border-image"
-              />
-              {
-                token && user.watchlist ? <i class={`btn bi bi-heart-fill position-absolute top-0 end-0 me-3 mt-3 stroke-white fs-5 z-100 ${user.watchlist.includes(parseInt(factory.fac_id)) || y ? `text-danger` : click}`} id="x" onClick={onClick}></i> : null
-              }
-            </div>
+
+          <div className="shadow-lg rounded-4 bg-light h-100 ">
+
+            <img
+              src={factory.image[0]}
+              class="card-img-top border-image"
+            />
+
+
             <div class="px-3">
               <div class="d-flex mt-2 fw-bold font-6">{factory.title}</div>
               <div class="d-flex fw-semibold fs-3 text-danger">
@@ -69,6 +71,7 @@ export default function Card({ factory, user }) {
                 {factory.Certificate[2]}
               </li>
             </ul>
+
           </div>
         </Link>
       </div>

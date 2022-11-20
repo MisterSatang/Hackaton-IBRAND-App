@@ -14,6 +14,8 @@ export function Pledge({ className }) {
   const [token, setToken] = useState(localStorage.getItem("status"));
   const [confriminator, setConfriminator] = useState('true');
   const [count, setcount] = useState(0);
+  const [total_price, settotal_price] = useState(0);
+  const [total_offer, settotal_offer] = useState(0);
 
   useEffect(() => {
     async function getTransaction() {
@@ -31,11 +33,28 @@ export function Pledge({ className }) {
   const onClickSend = () => {
     axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status_user`, {
       value: "wating",
+    })
+    axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status`, {
+      value: "confirm",
+    })
+    axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=count`, {
+      value: count,
+    })
+    axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=total_price`, {
+      value: total_price,
+    })
+    axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=total_offer`, {
+      value: total_offer,
     }).then((response) => {
       console.log(response);
     }).catch((error) => {
       console.log(error);
     });
+  }
+  const handleChang = (e) => {
+    setcount(e.target.value);
+    settotal_price(e.target.value * transaction.offer_price);
+    settotal_offer((e.target.value * transaction.offer_price) / 2);
   }
 
   return (
@@ -114,7 +133,7 @@ export function Pledge({ className }) {
                             type="number"
                             className="form-control p-2 me-4"
                             placeholder="กรุณากรอก"
-                            onChange={e => setcount(e.target.value)}
+                            onChange={handleChang}
                           />
 
                           <div className="d-flex">ชิ้น</div>
@@ -140,9 +159,11 @@ export function Pledge({ className }) {
                         </div>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-danger w-100 mt-2">
-                      <i class="bi bi-bag-fill text-light me-2"></i>Order
-                    </button>
+                    <Link to={`/wait/wating/${transaction.fac_id}/${transaction.step}`}>
+                      <button type="button" class="btn btn-danger w-100 mt-2" onClick={onClickSend}>
+                        <i class="bi bi-bag-fill text-light me-2"></i>Order
+                      </button>
+                    </Link>
                   </div>
                 </div>
                 {/* END CARD*/}

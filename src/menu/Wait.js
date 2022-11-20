@@ -65,6 +65,8 @@ export default function Wait() {
                   กำลังตรวจสอบสูตร ใช้เวลาประมาณ 10-24 ชม.
                 </div> : step == 2 ? <div className="d-flex fs-5 text- justify-content-center">
                   ทางโรงงานกำลังจัดส่ง testing product ใช้เวลาประมาณ 2-3 วัน
+                </div> : step == 4 ? <div className="d-flex fs-5 text- justify-content-center">
+                  ทางโรงงานกำลังยืนยันการมัดจำ ใช้เวลาประมาณ 1-2 ชั่วโมง
                 </div> : null
               }
 

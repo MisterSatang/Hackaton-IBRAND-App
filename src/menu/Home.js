@@ -109,11 +109,11 @@ export function Home({ className }) {
     <Fragment>
       <div className={className}>
         <Navbar />
-        <div className="container-fluid bg-body-purple">
+        <div className="container-fluid bg-body-purple sticky-top">
           <div className="row">
             <div className="col-1"></div>
             <div className="col">
-              <div className="row">
+              <div className="row p-0 m-0">
                 <div className="col-xl-4 col-lg-5 col-md-5 col-12 mt-4">
                   <div class="input-group flex-nowrap">
                     <span

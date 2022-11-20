@@ -26,7 +26,9 @@ export default function OrderCard({ factory }) {
                             factory.status_user == "wating" ? (<div className="mt-2 mb-3">
                                 <span class="badge text-bg-warning fs-6 me-2">
                                     <div class="spinner-border spinner-border-sm me-2"></div>
-                                    {`ขั้นตอน ${factory.step} รอการอนุมัติ...`}
+                                    {
+                                        factory.step == 4 ? `ขั้นตอน ${factory.step} รอการยืนยันมัดจำ` : `ขั้นตอน ${factory.step} รอการอนุมัติ...`
+                                    }
                                 </span>
                             </div>) : factory.status_user == "confirm" ? (<div className="mt-2 mb-3">
                                 <span class="badge text-bg-success fs-6 me-2">
