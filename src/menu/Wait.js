@@ -67,6 +67,10 @@ export default function Wait() {
                   ทางโรงงานกำลังจัดส่ง testing product ใช้เวลาประมาณ 2-3 วัน
                 </div> : step == 4 ? <div className="d-flex fs-5 text- justify-content-center">
                   ทางโรงงานกำลังยืนยันการมัดจำ ใช้เวลาประมาณ 1-2 ชั่วโมง
+                </div> : step == 5 ? <div className="d-flex fs-5 text- justify-content-center">
+                  กำลังตรวจสอบ Packaging ใช้เวลาประมาณ 1-2 วัน
+                </div> : step == 6 ? <div className="d-flex fs-5 text- justify-content-center">
+                  การขออนุมัติ อ.ย. ใช้เวลาประมาณ 7-14 วันทำการ
                 </div> : null
               }
 

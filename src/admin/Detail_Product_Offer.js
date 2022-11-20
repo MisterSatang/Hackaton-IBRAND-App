@@ -39,9 +39,20 @@ export function Detail_Product_Offer({ className }) {
     }, []);
 
 
-
     const onClickSend = () => {
-
+        axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=step`, {
+            value: 5,
+        })
+        axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status`, {
+            value: "wating",
+        })
+        axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status_user`, {
+            value: "confirm",
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     return (
@@ -51,7 +62,7 @@ export function Detail_Product_Offer({ className }) {
                     <div className="row">
                         <Sidebar />
                         <div className="col bg-body-purple p-0">
-                            <div className="fs-2 fw-bold mt-5 ms-5">Detail Product</div>
+                            <div className="fs-2 fw-bold mt-5 ms-5">Detail Offer</div>
                             <div className="fs-4 fw-bold ms-5">{transaction._id}</div>
                             <div className="container-fluid">
                                 <div className="row px-4">
@@ -125,9 +136,11 @@ export function Detail_Product_Offer({ className }) {
                                     </Link>
                                 </div>
                                 <div className="d-flex">
-                                    <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
-                                        ยืนยันการมัดจำ<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
-                                    </button>
+                                    <Link to="/tb_offer">
+                                        <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
+                                            ยืนยันการมัดจำ<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

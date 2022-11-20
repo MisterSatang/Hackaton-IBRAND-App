@@ -32,6 +32,7 @@ import QualityProduct_fail from "./menu/QualityProduct_fail";
 import TB_3_2_Testing from "./admin/TB_3_2_Testing"
 import QualityProduct_fix from "./menu/QualityProduct_fix";
 import Detail_Product_Offer from "./admin/Detail_Product_Offer"
+import Packaging_fail from "./menu/Packaging_fail";
 //FIXME: Login
 import Login from "./menu/Login";
 import Loading from "./component/Loading";
@@ -55,7 +56,8 @@ export default function App() {
       <Route path="/pretester2-1/:tran_id" element={<Pretester2_1 />} />
       <Route path="/pretester2-2/:tran_id" element={<Pretester2_2 />} />
       <Route path="/pledge/:tran_id" element={<Pledge />} />
-      <Route path="/packaging" element={<Packaging />} />
+      <Route path="/packaging/:tran_id" element={<Packaging />} />
+      <Route path="/packaging_fail/:tran_id/:pak_id" element={<Packaging_fail />} />
       <Route path="/pays" element={<Pays />} />
 
       {/* admin */}
@@ -71,7 +73,7 @@ export default function App() {
       <Route path="/tb_testing_2" element={<TB_3_2_Testing />} />
       <Route path="/detail_product/:tran_id" element={<Detail_Product />} />
       <Route path="/detail_product_offer/:tran_id" element={<Detail_Product_Offer />} />
-      <Route path="/detail_packaging" element={<Detail_Packaging />} />
+      <Route path="/detail_packaging/:tran_id/:pak_id" element={<Detail_Packaging />} />
       <Route path="/detail_deliveries" element={<Detail_Deliveries />} />
 
       {/* Login */}

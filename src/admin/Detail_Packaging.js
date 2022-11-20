@@ -1,11 +1,22 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import styled from "styled-components";
 import Sidebar from "./component/Sidebar";
+import axios from "axios";
+import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export function Detail_Packaging({ className }) {
+  let { tran_id, pak_id } = useParams();
+  const [transaction, settransaction] = useState([]);
+  const [product, setproduct] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("status"));
   const [admin, setAdmin] = useState(parseInt(localStorage.getItem("admin")));
+  const [confriminator, setConfriminator] = useState('true');
+  const [ofers, setOfers] = useState([]);
+  const [test, setTest] = useState([]);
+  const [details, setdetail] = useState("");
+  const [packaging, setpackaging] = useState([]);
 
   if (!token) {
     window.location.href = "/login";
@@ -14,6 +25,54 @@ export function Detail_Packaging({ className }) {
   if (admin != 1) {
     window.location.href = "/";
   }
+
+  useEffect(() => {
+    async function getTransaction() {
+      const tran = await axios.get(`http://localhost:8000/transaction/find_tranid/${tran_id}`, {
+        headers: {
+          token: token
+        }
+      });
+      settransaction(tran.data);
+      setproduct(tran.data.product[0]);
+      setpackaging(tran.data.product[0].p_pakaging[pak_id - 1]);
+    }
+    getTransaction();
+  }, []);
+
+
+  const onClickSend = () => {
+    if (confriminator == 'true') {
+      axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=step`, {
+        value: 6,
+      })
+      axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status`, {
+        value: "confirm",
+      })
+      axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status_user`, {
+        value: "wating",
+      }).then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else {
+      axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status`, {
+        value: "fail",
+      })
+      axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status_user`, {
+        value: "fail",
+      })
+      axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=qualityComment_factory`, {
+        value: details,
+      }).then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
+  }
+
   return (
     <Fragment>
       <div className={className}>
@@ -21,31 +80,27 @@ export function Detail_Packaging({ className }) {
           <div className="row">
             <Sidebar />
             <div className="col bg-body-purple p-0">
-              <div className="fs-2 fw-bold mt-5 ms-5">Detail Testing</div>
-              <div className="fs-4 fw-bold ms-5">Order Number : 0215645167</div>
+              <div className="fs-2 fw-bold mt-5 ms-5">Detail Packaging</div>
+              <div className="fs-4 fw-bold ms-5">{`Order Number : ${transaction._id}`}</div>
               <div className="container-fluid">
                 <div className="row p-4">
                   <div className="col-3">
                     <img
-                      src="asset/factory/01.jpg"
+                      src={packaging.pak_image}
                       class="card-img-top border-image-pill shadow-lg"
                     />
                   </div>
                   <div className="col-9 shadow-lg rounded-4 bg-light">
                     <div class="px-3">
                       <div class="d-flex mt-3">
-                        <span className="fs-5 fw-bold">สูตร : ColorFull</span>
+                        <span className="fs-5 fw-bold">{`สูตร : ${product.p_title}`}</span>
                         <span className="ms-4 fs-5 fw-bold text-danger">
-                          <i class="bi bi-currency-bitcoin"></i>4000/สูตร
+                          <i class="bi bi-currency-bitcoin"></i>{`${transaction.offer_price}/ชิ้น`}
                         </span>
                       </div>
                       <div class="d-flex fw-semibold fs-3 text-danger"></div>
                       <div class="card-text text-secondary mt-2 pb-3 fw-semibold">
-                        ช่วยลดการเกิดสิวที่ต้นเหตุ เช่น อนุมูลอิสระ
-                        ความมันส่วนเกิน เชื้อแบคทีเรียก่อสิว
-                        พร้อมผลัดเซลล์ผิวอย่างอ่อนโยน ช่วยให้ผิวเรียบเนียน
-                        กระจ่างใสขึ้น รวมถึงมีสารสกัดจากใบบัวบก
-                        ช่วยเพิ่มความชุ่มชื้นไม่ทำให้ผิวแห้งลอก
+                        {product.p_detail}
                       </div>
                     </div>
                   </div>
@@ -69,6 +124,8 @@ export function Detail_Packaging({ className }) {
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                     defaultChecked
+                    value={true}
+                    onChange={e => setConfriminator(e.target.value)}
                   />
                   <label
                     className="form-check-label"
@@ -83,6 +140,8 @@ export function Detail_Packaging({ className }) {
                     type="radio"
                     name="flexRadioDefault"
                     id="flexRadioDefault2"
+                    value={false}
+                    onChange={e => setConfriminator(e.target.value)}
                   />
                   <label
                     className="form-check-label"
@@ -100,6 +159,7 @@ export function Detail_Packaging({ className }) {
                       class="form-control"
                       id="textAreaExample"
                       rows="4"
+                      onChange={e => setdetail(e.target.value)}
                     ></textarea>
                   </div>
                 </div>
@@ -112,9 +172,11 @@ export function Detail_Packaging({ className }) {
                   </button>
                 </div>
                 <div className="d-flex">
-                  <button type="button" class="btn btn-primary px-5 mt-4">
-                    Confirm<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
-                  </button>
+                  <Link to="/tb_packaging">
+                    <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
+                      Confirm<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

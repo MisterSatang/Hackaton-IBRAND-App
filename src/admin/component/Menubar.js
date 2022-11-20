@@ -37,12 +37,16 @@ export default function Menubar() {
               <i class="bi bi-4-circle-fill me-2"></i> On Offer
             </div>
           </Link>
-          <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-5-circle-fill me-2"></i> On Packaging
-          </div>
-          <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-6-circle-fill me-2"></i> On FDA
-          </div>
+          <Link to="/tb_packaging" style={{ textDecoration: 'none' }}>
+            <div className="text-light ps-4 py-3 fs-5 ">
+              <i class="bi bi-5-circle-fill me-2"></i> On Packaging
+            </div>
+          </Link>
+          <Link to="/tb_FDA" style={{ textDecoration: 'none' }}>
+            <div className="text-light ps-4 py-3 fs-5 ">
+              <i class="bi bi-6-circle-fill me-2"></i> On FDA
+            </div>
+          </Link>
           <div className="text-light ps-4 py-3 fs-5 ">
             <i class="bi bi-7-circle-fill me-2"></i> On Produce
           </div>

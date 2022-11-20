@@ -47,7 +47,6 @@ export default function Card({ factory, user }) {
               class="card-img-top border-image"
             />
 
-
             <div class="px-3">
               <div class="d-flex mt-2 fw-bold font-6">{factory.title}</div>
               <div class="d-flex fw-semibold fs-3 text-danger">
