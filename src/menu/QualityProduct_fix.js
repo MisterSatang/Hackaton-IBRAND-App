@@ -58,7 +58,6 @@ export default function QualityProduct_fail() {
         });
     }
 
-
     return (
         <Fragment>
             <Navbar />
@@ -84,16 +83,8 @@ export default function QualityProduct_fail() {
                 <div className="row">
                     <div className="col-1"></div>
                     <div className="col-10">
-                        <div className="bg-danger p-4 rounded-4 mb-4">
-                            <div className="d-flex fs-4 fw-bold text-light justify-content-center">
-                                สูตรมีความผิดพลาด กรุณาเเก้ไขสูตรใหม่
-                            </div>
-                            <div className="d-flex fs-6 text-light justify-content-center mb-4">
-                                {transaction.qualityComment_factory}
-                            </div>
-                        </div>
                         <div className="d-flex fs-5 fw-bold text-uppercase">
-                            Step 1 : Select quality Product
+                            Step : fix quality Product
                         </div>
                         <div className="row p-0 m-0">
                             <div className="col-3 py-0 px-2 mt-4">

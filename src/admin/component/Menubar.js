@@ -22,23 +22,32 @@ export default function Menubar() {
               <i class="bi bi-1-circle-fill me-2"></i> On Product
             </div>
           </Link>
+          <Link to="/tb_testing" style={{ textDecoration: 'none' }}>
+            <div className="text-light ps-4 py-3 fs-5 ">
+              <i class="bi bi-2-circle-fill me-2"></i> On Send Testing
+            </div>
+          </Link>
+          <Link to="/tb_testing_2" style={{ textDecoration: 'none' }}>
+            <div className="text-light ps-4 py-3 fs-5 ">
+              <i class="bi bi-3-circle-fill me-2"></i> On Testing
+            </div>
+          </Link>
+          <Link to="/tb_offer" style={{ textDecoration: 'none' }}>
+            <div className="text-light ps-4 py-3 fs-5 ">
+              <i class="bi bi-4-circle-fill me-2"></i> On Offer
+            </div>
+          </Link>
           <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-2-circle-fill me-2"></i> On Testing
+            <i class="bi bi-5-circle-fill me-2"></i> On Packaging
           </div>
           <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-3-circle-fill me-2"></i> On Offer
+            <i class="bi bi-6-circle-fill me-2"></i> On FDA
           </div>
           <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-4-circle-fill me-2"></i> On Packaging
+            <i class="bi bi-7-circle-fill me-2"></i> On Produce
           </div>
           <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-5-circle-fill me-2"></i> On FDA
-          </div>
-          <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-6-circle-fill me-2"></i> On Produce
-          </div>
-          <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-7-circle-fill me-2"></i> On Pays
+            <i class="bi bi-8-circle-fill me-2"></i> On Pays
           </div>
           <div className="text-light ps-4 py-3 fs-5 ">
             <i class="bi bi-box-seam-fill me-2"></i> On Deliveries

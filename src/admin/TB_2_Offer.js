@@ -1,12 +1,17 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import styled from "styled-components";
 import Sidebar from "./component/Sidebar";
 import Table from "./component/Table";
+import axios from "axios";
+import Loading from "../component/Loading";
 
-export function TB_2_Offer({ className }) {
+export function TB_3_2_Testing({ className }) {
   const [token, setToken] = useState(localStorage.getItem("status"));
   const [admin, setAdmin] = useState(parseInt(localStorage.getItem("admin")));
+  const [onProduct, setOnProduct] = useState([]);
+  const [user, setUser] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   if (!token) {
     window.location.href = "/login";
@@ -16,14 +21,40 @@ export function TB_2_Offer({ className }) {
     window.location.href = "/";
   }
 
+  useEffect(() => {
+    async function getUser() {
+      try {
+        setLoading(true);
+        const user = await axios.get(`http://localhost:8000/user/getuser`, {
+          headers: {
+            token: token
+          }
+        });
+        const onproduct = await axios.get(
+          `http://localhost:8000/transaction/byfac/onoffer/${user.data.fac_id}`
+        );
+        setOnProduct(onproduct.data);
+        setUser(user.data);
+      } catch (e) {
+        console.error(e);
+
+      } finally {
+        setLoading(false);
+      }
+    }
+    getUser();
+  }, []);
+
+  if (loading) return <Loading />
+
   return (
     <Fragment>
       <div className={className}>
-        <div className="container-fluid">
+        <div className="container-fluid bg-body-purple h-screen w-screen">
           <div className="row">
             <Sidebar />
-            <div className="col bg-body-purple">
-              <div className="fs-2 fw-bold mt-5 ms-5">On Offer</div>
+            <div className="col">
+              <div className="fs-2 fw-bold mt-5 ms-5">On Product</div>
               <div class="input-group flex-nowrap my-3">
                 <span class="input-group-text bg-warning" id="addon-wrapping">
                   <i class="bi bi-search"></i>
@@ -41,21 +72,19 @@ export function TB_2_Offer({ className }) {
                     <th scope="col">Order Date</th>
                     <th scope="col">Status</th>
                     <th scope="col">Owner</th>
+                    <th scope="col">View Detail</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-light">
-                    <th scope="row">0231541311</th>
-                    <td>15/11/2565</td>
-                    <td>
-                      <div
-                        class="spinner-border spinner-border-sm me-2 text-primary"
-                        role="status"
-                      ></div>
-                      รอการยืนยัน...
-                    </td>
-                    <td>Otto</td>
-                  </tr>
+                  {onProduct.length > 0 ? (
+                    <>
+                      {onProduct.map((productData) => (
+                        <Table key={productData._id} product={productData} />
+                      ))}
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -65,4 +94,4 @@ export function TB_2_Offer({ className }) {
     </Fragment>
   );
 }
-export default styled(TB_2_Offer)``;
+export default styled(TB_3_2_Testing)``;

@@ -105,8 +105,6 @@ export function Home({ className }) {
     setingre(event.target.value);
   };
 
-  console.log(user);
-
   return (
     <Fragment>
       <div className={className}>

@@ -64,7 +64,8 @@ export default function QualityProduct() {
       user_name: user.first_name,
       fac_id: fac_id,
       fac_title: factory.title,
-      status: "wating"
+      status: "wating",
+      status_user: "wating",
     }).then((response) => {
       console.log(response);
     }).catch((error) => {
@@ -149,7 +150,7 @@ export default function QualityProduct() {
               <div className="d-flex justify-content-between mt-4">
                 <div className="d-flex"></div>
                 <div className="d-flex">
-                  <Link to={`/wait/wating/${factory.fac_id}`}>
+                  <Link to={`/wait/wating/${factory.fac_id}/1`}>
                     <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
                       SEND<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
                     </button>

@@ -7,7 +7,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function Wait() {
-  let { fac_id, status } = useParams();
+  let { fac_id, status, step } = useParams();
   const [factory, setFactory] = useState([]);
 
   console.log(fac_id, status);
@@ -60,9 +60,14 @@ export default function Wait() {
                 <div class="spinner-border me-3" role="status"></div>
                 Waiting for confirmation from factory ...
               </div>
-              <div className="d-flex fs-5 text- justify-content-center">
-                กำลังตรวจสอบสูตร ใช้เวลาประมาณ 10-24 ชม.
-              </div>
+              {
+                step == 1 ? <div className="d-flex fs-5 text- justify-content-center">
+                  กำลังตรวจสอบสูตร ใช้เวลาประมาณ 10-24 ชม.
+                </div> : step == 2 ? <div className="d-flex fs-5 text- justify-content-center">
+                  ทางโรงงานกำลังจัดส่ง testing product ใช้เวลาประมาณ 2-3 วัน
+                </div> : null
+              }
+
             </div>
             <div className="d-flex justify-content-between">
               <div className="d-flex">

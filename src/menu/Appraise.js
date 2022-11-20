@@ -4,6 +4,7 @@ import Footer from "../component/Footer";
 import Timeline from "../component/Timeline";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Appraise() {
   let { tran_id } = useParams();
@@ -81,15 +82,18 @@ export default function Appraise() {
               <div className="col-4 py-0 ps-4 mt-4">
                 <div class="p-3 shadow-lg rounded-4 bg-light">
                   <div class="d-flex mt-2 fw-bold font-6 border-bottom border-2">
-                    {product.p_id}
+                    {`No. ${transaction._id}`}
                   </div>
                   <div class="d-flex fw-semibold fs-3 text-danger">
-                    <i class="bi bi-currency-bitcoin"></i>4000/สูตร
+                    <i class="bi bi-currency-bitcoin"></i>{`${transaction.offer_price}/unit`}
                   </div>
 
-                  <button type="button" class="btn btn-primary w-100 mt-2">
-                    Confirm
-                  </button>
+                  <Link to={`/pretester2-1/${tran_id}`}>
+                    <button type="button" class="btn btn-primary w-100 mt-2">
+                      Confirm
+                    </button>
+                  </Link>
+
                 </div>
               </div>
               {/* END CARD*/}

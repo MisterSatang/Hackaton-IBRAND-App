@@ -10,6 +10,9 @@ export function Admin({ className }) {
   const [token, setToken] = useState(localStorage.getItem("status"));
   const [admin, setAdmin] = useState(parseInt(localStorage.getItem("admin")));
   const [onProduct, setOnProduct] = useState([]);
+  const [onTesting, setOnTesting] = useState([]);
+  const [onTesting_2, setOnTesting_2] = useState([]);
+  const [onOffer, setOnoffer] = useState([]);
   const [allProduct, setAllProduct] = useState([]);
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -34,10 +37,21 @@ export function Admin({ className }) {
         const onproduct = await axios.get(
           `http://localhost:8000/transaction/byfac/onproduct/${user.data.fac_id}`
         );
+        const ontesting = await axios.get(
+          `http://localhost:8000/transaction/byfac/ontesting/${user.data.fac_id}`
+        );
+        const ontesting_2 = await axios.get(
+          `http://localhost:8000/transaction/byfac/ontesting_2/${user.data.fac_id}`
+        ); const offer = await axios.get(
+          `http://localhost:8000/transaction/byfac/onoffer/${user.data.fac_id}`
+        );
         const allproduct = await axios.get(
           `http://localhost:8000/transaction/byfac/${user.data.fac_id}`
         );
         setOnProduct(onproduct.data);
+        setOnTesting(ontesting.data);
+        setOnTesting_2(ontesting_2.data);
+        setOnoffer(offer.data);
         setAllProduct(allproduct.data);
         setUser(user.data);
       } catch (e) {
@@ -82,12 +96,26 @@ export function Admin({ className }) {
                 <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
                   <div className="btn btn-primary p-0 w-100 rounded-5 ">
                     <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
+                      On Send Testing
+                    </div>
+                    <div className="text-center p-3 text-light ">
+                      <div className="row d-flex align-items-center">
+                        <div className="col-4">total :</div>
+                        <div className="col-4 fs-2 fw-bold">{onTesting.length}</div>
+                        <div className="col-4">order</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
+                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
+                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
                       On Testing
                     </div>
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">-</div>
+                        <div className="col-4 fs-2 fw-bold">{onTesting_2.length}</div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -101,7 +129,7 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">-</div>
+                        <div className="col-4 fs-2 fw-bold">{onOffer.length}</div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
