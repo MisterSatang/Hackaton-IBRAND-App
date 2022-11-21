@@ -50,7 +50,7 @@ export default function Wait() {
           <div className="col-1"></div>
         </div>
       </div>
-      <Timeline />
+      <Timeline step={step} />
       <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>

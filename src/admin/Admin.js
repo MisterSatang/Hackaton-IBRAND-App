@@ -96,7 +96,7 @@ export function Admin({ className }) {
       <div className={className}>
         <div className="container-fluid bg-body-purple h-screen w-screen">
           <div className="row">
-            <Sidebar />
+            <Sidebar onNav="home" />
             <div className="col">
               <div className="fs-2 fw-bold mt-5 ms-5 border-bottom border-3 border-primary">
                 จัดการลูกค้าทั้งหมด

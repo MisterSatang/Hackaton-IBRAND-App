@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import TimelinePoint from "./TimelinePoint";
 
-const step = 6;
+// const step = 6;
 
 const dataSteps = [
   {
@@ -42,7 +42,7 @@ const dataSteps = [
   },
 ];
 
-export default function Navbar() {
+export default function Navbar({ step }) {
   console.log(dataSteps);
   return (
     <Fragment>

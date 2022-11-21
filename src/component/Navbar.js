@@ -1,12 +1,14 @@
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ onNav }) {
   const [token, setToken] = useState(localStorage.getItem("status"));
 
   const x = () => {
     localStorage.clear();
   }
+
+  console.log(onNav);
 
   return (
     <Fragment>
@@ -30,19 +32,20 @@ export default function Navbar() {
             <ul class="navbar-nav ms-auto bg-dark-20 rounded-5 ">
               <Link
                 to="/"
-                class="nav-link active bg-dark-20 rounded-menu p-2 px-5 text-light border-0"
+                class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${onNav == "home" ? "active bg-dark-20" : ""}`}
               >
-                <div class="nav-menu">
-                  <i class="bi bi-house-door me-1 text-wheat"></i>Home
+                <div class={`${onNav == "home" ? "nav-menu" : ""}`}>
+                  {onNav == "home" ? <i class="bi bi-house-door me-1 text-wheat"></i> : ""}
+                  Home
                 </div>
               </Link>
               {
                 token ? <Link
                   to="/mylist"
-                  class="nav-link active bg-transparent p-2 mx-4 text-light border-0"
+                  class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${onNav == "mylist" ? "active bg-dark-20" : ""}`}
                 >
-                  <div>
-                    {/* <i class="bi bi-heart me-1"></i> */}
+                  <div class={`${onNav == "mylist" ? "nav-menu" : ""}`}>
+                    {onNav == "mylist" ? <i class="bi bi-heart me-1 text-wheat"></i> : ""}
                     Mylist
                   </div>
                 </Link> : null
@@ -50,9 +53,10 @@ export default function Navbar() {
               {
                 token ? <Link
                   to="/order"
-                  class="nav-link active bg-transparent p-2 mx-4 text-light border-0"
+                  class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${onNav == "order" ? "active bg-dark-20" : ""}`}
                 >
-                  <div>
+                  <div class={`${onNav == "order" ? "nav-menu" : ""}`}>
+                    {onNav == "order" ? <i class="bi bi-bag me-1 text-wheat"></i> : ""}
                     Order
                   </div>
                 </Link> : null
@@ -74,6 +78,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-    </Fragment>
+    </Fragment >
   );
 }

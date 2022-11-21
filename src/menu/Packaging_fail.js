@@ -14,6 +14,7 @@ export function Packaging_fail({ className }) {
     const [product, setproduct] = useState([]);
     const [packaging, setpackaging] = useState([]);
     const [packagingSelect, setpackagingSelect] = useState([]);
+    const [link, setlink] = useState("")
     const [token, setToken] = useState(localStorage.getItem("status"));
 
     useEffect(() => {
@@ -36,6 +37,9 @@ export function Packaging_fail({ className }) {
         });
         axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status`, {
             value: "confirm",
+        })
+        axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=file_pakaging`, {
+            value: link,
         }).then((response) => {
             console.log(response);
         }).catch((error) => {
@@ -64,7 +68,7 @@ export function Packaging_fail({ className }) {
                         <div className="col-1"></div>
                     </div>
                 </div>
-                <Timeline />
+                <Timeline step={transaction.step} />
                 <div className="container-fluid pt-4 bg-body-purple">
                     <div className="row">
                         <div className="col-1"></div>
@@ -77,8 +81,8 @@ export function Packaging_fail({ className }) {
                                     {`เพิ่มเติม : ${transaction.qualityComment_factory}`}
                                 </div>
                             </div>
-                            <div className="d-flex fs-5 fw-bold text-uppercase">
-                                Step 5 : Select Packaging
+                            <div className="d-flex fs-5 fw-bold text-uppercase text-danger">
+                                Step 5 : แก้ไข้ Packaging
                             </div>
                             <div>
                                 <div className="row m-0">
@@ -118,22 +122,23 @@ export function Packaging_fail({ className }) {
                             <div className="d-flex fs-5 mb-3 fw-bold text-uppercase">
                                 You Can Download From<i class="bi bi-caret-down-fill ms-2"></i>
                             </div>
-                            <span className="fw-semibold bg-navbar text-light p-2 px-4 rounded-pill ">
-                                แบบฟอร์มการออกเเบบ คลิ๊ก
-                                <i class="ms-2 bi bi-download"></i>
+                            <span className="btn fw-semibold bg-navbar text-light p-2 px-4 rounded-pill ">
+                                <i class="me-2 bi bi-box-arrow-up-right"></i>แบบฟอร์มการออกเเบบ คลิ๊ก
                             </span>
-                            <span className="ms-2 fw-semibold bg-navbar text-light p-2 px-4 rounded-pill">
-                                Ex. Design Pakaging
-                                <i class="ms-2 bi bi-download"></i>
+                            <span className="btn ms-2 fw-semibold bg-navbar text-light p-2 px-4 rounded-pill">
+                                <i class="me-2 bi bi-box-arrow-up-right"></i>Ex. Design Pakaging
+
                             </span>
 
                             <div className="mt-5">
-                                <span className="mt-5 fs-5 mb-3 fw-bold text-uppercase">
-                                    Upload your Design Pakaging
+                                <span className="fs-5 mb-3 fw-bold text-uppercase">
+                                    Enter URL (link) Your Desing
                                 </span>
-                                <span class="btn btn-outline-primary rounded-pill px-4 py-2 ms-3">
-                                    Your Design Pakaging <i class="bi bi-upload ms-1"></i>
-                                </span>
+                                <div className="input-group mb-3 mt-3">
+                                    <span className="input-group-text" id="basic-addon1"><i class="bi bi-link"></i></span>
+                                    <input type="text" className="form-control" placeholder="Your Link Design Product" onChange={e => setlink(e.target.value)} />
+                                </div>
+
                             </div>
 
                             <div className="d-flex justify-content-between mt-4">

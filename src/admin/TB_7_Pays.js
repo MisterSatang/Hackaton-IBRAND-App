@@ -51,9 +51,9 @@ export function TB_7_Pays({ className }) {
       <div className={className}>
         <div className="container-fluid bg-body-purple h-screen w-screen">
           <div className="row">
-            <Sidebar />
+            <Sidebar onNav="pay" />
             <div className="col">
-              <div className="fs-2 fw-bold mt-5 ms-5">On FDA</div>
+              <div className="fs-2 fw-bold mt-5 ms-5">On Pays</div>
               <div class="input-group flex-nowrap my-3">
                 <span class="input-group-text bg-warning" id="addon-wrapping">
                   <i class="bi bi-search"></i>

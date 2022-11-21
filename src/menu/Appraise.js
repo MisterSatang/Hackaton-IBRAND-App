@@ -46,7 +46,7 @@ export default function Appraise() {
           <div className="col-1"></div>
         </div>
       </div>
-      <Timeline />
+      <Timeline step={transaction.step} />
       <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>
@@ -61,7 +61,7 @@ export default function Appraise() {
                   <div className="col-3">
                     <img
                       src={product.p_image}
-                      class="card-img-top border-image-pill shadow-lg"
+                      class="card-img-top border-image-pill shadow-lg h-100"
                     />
                   </div>
                   <div className="col-9 shadow-lg rounded-4 bg-light">

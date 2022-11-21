@@ -78,7 +78,7 @@ export default function QualityProduct_fail() {
                     <div className="col-1"></div>
                 </div>
             </div>
-            <Timeline />
+            <Timeline step={transaction.step} />
             <div className="container-fluid pt-4 bg-body-purple">
                 <div className="row">
                     <div className="col-1"></div>

@@ -11,7 +11,7 @@ export function Detail_Deliveries({ className }) {
   const [transaction, settransaction] = useState([]);
   const [product, setproduct] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("status"));
-  const [deliver, setdeliver] = useState([])
+  const [deliver, setdeliver] = useState("")
   const [admin, setAdmin] = useState(parseInt(localStorage.getItem("admin")));
 
   if (!token) {
@@ -87,8 +87,12 @@ export function Detail_Deliveries({ className }) {
                 <div class="px-4">
                   <div class="d-flex my-3">
                     <span className="fs-4 fw-bold">Packaging</span>
-                    <span class="ms-2 badge fw-semibold bg-primary fs-5">
-                      Download<i class="ms-3 bi bi-download"></i>
+                    <span className="border-2 border-bottom border-primary">
+                      <a href={transaction.file_pakaging} target="_blank">
+                        <span class="btn badge fw-semibold fs-5 text-primary" href={transaction.file_pakaging}>
+                          <i class="bi bi-box-arrow-up-right me-2"></i>Click Open Link Packaging
+                        </span>
+                      </a>
                     </span>
                   </div>
                 </div>

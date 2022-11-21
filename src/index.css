@@ -98,6 +98,8 @@ body {
   text-align: center
 }
 
+.inner-circl-success {}
+
 .timeline-steps .timeline-content .inner-circle {
   border-radius: 1.5rem;
   height: 1rem;
@@ -107,6 +109,8 @@ body {
   justify-content: center;
   background-color: #1a67e2
 }
+
+
 
 .timeline-steps .timeline-content .inner-circle:before {
   content: "";
@@ -312,4 +316,27 @@ body {
   border: 0.2rem solid #1a67e2 !important;
   border-radius: 1rem !important;
   transition: 0S !important;
+}
+
+.timeline-steps .timeline-content .inner-circl-success {
+  border-radius: 1.5rem;
+  height: 1rem;
+  width: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #40b714;
+}
+
+
+
+.timeline-steps .timeline-content .inner-circl-success:before {
+  content: "";
+  background-color: #40b714;
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+  min-width: 3rem;
+  border-radius: 6.25rem;
+  opacity: .5
 }

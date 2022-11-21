@@ -11,7 +11,7 @@ export function Pays({ className }) {
   let { tran_id } = useParams();
   const [transaction, settransaction] = useState([]);
   const [product, setproduct] = useState([]);
-  const [location, setlocation] = useState([]);
+  const [location, setlocation] = useState("");
   const [token, setToken] = useState(localStorage.getItem("status"));
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export function Pays({ className }) {
             <div className="col-1"></div>
           </div>
         </div>
-        <Timeline />
+        <Timeline step={transaction.step} />
         <div className="container-fluid pt-4 bg-body-purple">
           <div className="row">
             <div className="col-1"></div>
@@ -81,7 +81,7 @@ export function Pays({ className }) {
                     <div className="col-3">
                       <img
                         src={product.p_image}
-                        class="card-img-top border-image-pill shadow-lg"
+                        class="card-img-top border-image-pill shadow-lg h-100"
                       />
                     </div>
                     <div className="col-9 shadow-lg rounded-4 bg-light">
@@ -103,9 +103,10 @@ export function Pays({ className }) {
                     <span className="mt-5 fs-5 mb-3 fw-bold text-uppercase">
                       My Packaging
                     </span>
-                    <span className="ms-2 fw-semibold bg-navbar text-light p-2 px-4 rounded-pill">
-                      Watch My Packanging
-                      <i class="ms-2 bi bi-download"></i>
+                    <span className="ms-3 border-2 border-bottom border-primary">
+                      <span class="btn badge fw-semibold fs-5 text-primary">
+                        <i class="bi bi-box-arrow-up-right me-2"></i>Watch My Packaging
+                      </span>
                     </span>
                   </div>
                 </div>

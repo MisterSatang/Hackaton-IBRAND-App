@@ -13,8 +13,8 @@ export function Detail_Product({ className }) {
   const [token, setToken] = useState(localStorage.getItem("status"));
   const [admin, setAdmin] = useState(parseInt(localStorage.getItem("admin")));
   const [confriminator, setConfriminator] = useState('true');
-  const [ofers, setOfers] = useState([]);
-  const [test, setTest] = useState([]);
+  const [ofers, setOfers] = useState(0);
+  const [test, setTest] = useState(0);
   const [details, setdetail] = useState("");
 
   if (!token) {

@@ -13,7 +13,8 @@ export function Packaging({ className }) {
   const [transaction, settransaction] = useState([]);
   const [product, setproduct] = useState([]);
   const [packaging, setpackaging] = useState([]);
-  const [packagingSelect, setpackagingSelect] = useState([]);
+  const [packagingSelect, setpackagingSelect] = useState(1);
+  const [link, setlink] = useState("")
   const [token, setToken] = useState(localStorage.getItem("status"));
 
   useEffect(() => {
@@ -39,6 +40,9 @@ export function Packaging({ className }) {
     })
     axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=pakaging_choose`, {
       value: packagingSelect,
+    })
+    axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=file_pakaging`, {
+      value: link,
     }).then((response) => {
       console.log(response);
     }).catch((error) => {
@@ -67,7 +71,7 @@ export function Packaging({ className }) {
             <div className="col-1"></div>
           </div>
         </div>
-        <Timeline />
+        <Timeline step={transaction.step} />
         <div className="container-fluid pt-4 bg-body-purple">
           <div className="row">
             <div className="col-1"></div>
@@ -104,21 +108,21 @@ export function Packaging({ className }) {
               <div className="d-flex fs-5 mb-3 fw-bold text-uppercase">
                 You Can Download From<i class="bi bi-caret-down-fill ms-2"></i>
               </div>
-              <span className="fw-semibold bg-navbar text-light p-2 px-4 rounded-pill ">
+              <span className="btn fw-semibold bg-navbar text-light p-2 px-4 rounded-pill ">
                 แบบฟอร์มการออกเเบบ คลิ๊ก
                 <i class="ms-2 bi bi-download"></i>
               </span>
-              <span className="ms-2 fw-semibold bg-navbar text-light p-2 px-4 rounded-pill">
+              <span className="btn ms-2 fw-semibold bg-navbar text-light p-2 px-4 rounded-pill">
                 Ex. Design Pakaging
                 <i class="ms-2 bi bi-download"></i>
               </span>
 
               <div className="mt-5">
-                <span className="mt-5 fs-5 mb-3 fw-bold text-uppercase">
-                  Upload your Design Pakaging
+                <span className="fs-5 mb-3 fw-bold text-uppercase">
+                  Enter URL (link) Your Desing
                 </span>
-                <span class="btn btn-outline-primary rounded-pill px-4 py-2 ms-3">
-                  Your Design Pakaging <i class="bi bi-upload ms-1"></i>
+                <span className="input-group mb-3">
+                  <input type="text" className="form-control rounded-5 mt-2 border-primary border-3" placeholder="Your Link Design Product" aria-label="Your Link Design Product" aria-describedby="basic-addon2" onChange={e => setlink(e.target.value)} />
                 </span>
               </div>
 

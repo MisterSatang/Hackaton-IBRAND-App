@@ -52,7 +52,7 @@ export function TB_1_Product({ className }) {
       <div className={className}>
         <div className="container-fluid bg-body-purple h-screen w-screen">
           <div className="row">
-            <Sidebar />
+            <Sidebar onNav="product" />
             <div className="col">
               <div className="fs-2 fw-bold mt-5 ms-5">On Product</div>
               <div class="input-group flex-nowrap my-3">

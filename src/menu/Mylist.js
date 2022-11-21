@@ -43,7 +43,7 @@ export default function Mylist() {
 
   return (
     <Fragment>
-      <Navbar />
+      <Navbar onNav="mylist" />
       <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>

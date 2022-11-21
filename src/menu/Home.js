@@ -108,7 +108,7 @@ export function Home({ className }) {
   return (
     <Fragment>
       <div className={className}>
-        <Navbar />
+        <Navbar onNav="home" />
         <div className="container-fluid bg-body-purple sticky-top">
           <div className="row">
             <div className="col-1"></div>
