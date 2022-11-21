@@ -42,8 +42,8 @@ export function Home({ className }) {
   async function getUser_auth() {
     const user = await axios.get(`http://localhost:8000/user/getuser`, {
       headers: {
-        token: token
-      }
+        token: token,
+      },
     });
     setUser(user.data);
   }
