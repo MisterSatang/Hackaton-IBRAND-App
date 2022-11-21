@@ -1,8 +1,49 @@
 import { Fragment } from "react";
+import TimelinePoint from "./TimelinePoint";
 
 const step = 6;
 
+const dataSteps = [
+  {
+    id: 1,
+    name: "เลือกสูตร",
+  },
+  {
+    id: 2,
+    name: "ประเมินราคา",
+  },
+  {
+    id: 3,
+    name: "สินค้าทดสอบ",
+  },
+  {
+    id: 4,
+    name: "มัดจำ",
+  },
+  {
+    id: 5,
+    name: "เลือกเเพคเกจ",
+  },
+  {
+    id: 6,
+    name: "ขอ อย.",
+  },
+  {
+    id: 7,
+    name: "ผลิตสินค้า",
+  },
+  {
+    id: 8,
+    name: "จ่ายเงิน",
+  },
+  {
+    id: 9,
+    name: "ส่งสินค้า",
+  },
+];
+
 export default function Navbar() {
+  console.log(dataSteps);
   return (
     <Fragment>
       <div className="container-fluid pt-4 bg-body-purple">
@@ -17,249 +58,14 @@ export default function Navbar() {
                       class="timeline-steps aos-init aos-animate"
                       data-aos="fade-up"
                     >
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 1
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 1 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 1
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 1 ? "text-primary" : ""
-                              }`}
-                          >
-                            เลือกสูตร
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 2
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 2 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 2
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 2 ? "text-primary" : ""
-                              }`}
-                          >
-                            ประเมินราคา
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 3
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 3 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 3
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 3 ? "text-primary" : ""
-                              }`}
-                          >
-                            สินค้าทดสอบ
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 4
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 4 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 4
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 4 ? "text-primary" : ""
-                              }`}
-                          >
-                            มัดจำ
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 5
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 5 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 5
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 5 ? "text-primary" : ""
-                              }`}
-                          >
-                            เลือกเเพคเกจ
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 6
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 6 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 6
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 6 ? "text-primary" : ""
-                              }`}
-                          >
-                            ขอ อย.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 7
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 7 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 7
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 7 ? "text-primary" : ""
-                              }`}
-                          >
-                            ผลิตสินค้า
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 8
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 8 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 8
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 8 ? "text-primary" : ""
-                              }`}
-                          >
-                            จ่ายเงิน
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-step">
-                        <div
-                          class="timeline-content"
-                          data-toggle="popover"
-                          data-trigger="hover"
-                          data-placement="top"
-                        >
-                          <div
-                            class={`${step >= 9
-                                ? "inner-circle"
-                                : "inner-circle-disable"
-                              }`}
-                          ></div>
-                          <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 9 ? "text-primary" : ""
-                              }`}
-                          >
-                            Step 9
-                          </p>
-                          <p
-                            class={`fs-6 mb-1 ${step >= 9 ? "text-primary" : ""
-                              }`}
-                          >
-                            ส่งสินค้า
-                          </p>
-                        </div>
-                      </div>
+                      {dataSteps.map((dataStep) => (
+                        <TimelinePoint
+                          key={dataStep.id}
+                          onStep={step}
+                          steps={dataStep.id}
+                          text={dataStep.name}
+                        />
+                      ))}
                     </div>
                   </div>
                 </div>
