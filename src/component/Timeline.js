@@ -25,23 +25,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 1
+                            class={`${step >= 1
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 1 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 1 ? "text-primary" : ""
+                              }`}
                           >
                             Step 1
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 1 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 1 ? "text-primary" : ""
+                              }`}
                           >
                             เลือกสูตร
                           </p>
@@ -55,23 +52,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 2
+                            class={`${step >= 2
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 2 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 2 ? "text-primary" : ""
+                              }`}
                           >
                             Step 2
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 2 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 2 ? "text-primary" : ""
+                              }`}
                           >
                             ประเมินราคา
                           </p>
@@ -85,23 +79,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 3
+                            class={`${step >= 3
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 3 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 3 ? "text-primary" : ""
+                              }`}
                           >
                             Step 3
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 3 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 3 ? "text-primary" : ""
+                              }`}
                           >
                             สินค้าทดสอบ
                           </p>
@@ -115,23 +106,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 4
+                            class={`${step >= 4
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 4 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 4 ? "text-primary" : ""
+                              }`}
                           >
                             Step 4
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 4 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 4 ? "text-primary" : ""
+                              }`}
                           >
                             มัดจำ
                           </p>
@@ -145,23 +133,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 5
+                            class={`${step >= 5
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 5 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 5 ? "text-primary" : ""
+                              }`}
                           >
                             Step 5
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 5 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 5 ? "text-primary" : ""
+                              }`}
                           >
                             เลือกเเพคเกจ
                           </p>
@@ -175,23 +160,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 6
+                            class={`${step >= 6
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 6 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 6 ? "text-primary" : ""
+                              }`}
                           >
                             Step 6
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 6 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 6 ? "text-primary" : ""
+                              }`}
                           >
                             ขอ อย.
                           </p>
@@ -205,23 +187,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 7
+                            class={`${step >= 7
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 7 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 7 ? "text-primary" : ""
+                              }`}
                           >
                             Step 7
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 7 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 7 ? "text-primary" : ""
+                              }`}
                           >
                             ผลิตสินค้า
                           </p>
@@ -235,23 +214,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 8
+                            class={`${step >= 8
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 8 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 8 ? "text-primary" : ""
+                              }`}
                           >
                             Step 8
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 8 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 8 ? "text-primary" : ""
+                              }`}
                           >
                             จ่ายเงิน
                           </p>
@@ -265,23 +241,20 @@ export default function Navbar() {
                           data-placement="top"
                         >
                           <div
-                            class={`${
-                              step >= 9
+                            class={`${step >= 9
                                 ? "inner-circle"
                                 : "inner-circle-disable"
-                            }`}
+                              }`}
                           ></div>
                           <p
-                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${
-                              step >= 9 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 fw-bold mt-3 mb-1 text-uppercase ${step >= 9 ? "text-primary" : ""
+                              }`}
                           >
                             Step 9
                           </p>
                           <p
-                            class={`fs-6 mb-1 ${
-                              step >= 9 ? "text-primary" : ""
-                            }`}
+                            class={`fs-6 mb-1 ${step >= 9 ? "text-primary" : ""
+                              }`}
                           >
                             ส่งสินค้า
                           </p>

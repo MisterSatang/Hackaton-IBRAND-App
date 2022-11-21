@@ -1,13 +1,21 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductCard({ fac_id, product }) {
+
+
+
+
+export default function ProductCard({ fac_id, product, pro_id }) {
+
+    console.log(pro_id);
     return (
         <Fragment>
             {/* CARD*/}
-            <div className="col-3 py-0 px-2 mt-4">
-                <Link to={`/QualityProduct/${fac_id}/${product.p_id}`} style={{ textDecoration: 'none' }}>
-                    <div className="shadow-lg rounded-4 bg-light h-100">
+            <div className="col-3 py-0 px-2 mt-4 hoverCard">
+                <Link to={`/QualityProduct/${fac_id}/${product.p_id}`} style={{ textDecoration: 'none' }} >
+                    <div className="shadow-lg rounded-4 bg-light h-100 position-relative">
+                        <div className={`position-absolute top-0 w-100 h-100 bg-card-contain z-100 ${pro_id == product.p_id ? "select-card" : ""}`} >
+                        </div>
                         <img
                             src={product.p_image}
                             class="card-img-top border-image"
@@ -24,7 +32,7 @@ export default function ProductCard({ fac_id, product }) {
                         </div>
                     </div>
                 </Link>
-            </div>
+            </div >
             {/* END CARD*/}
         </Fragment >
     );

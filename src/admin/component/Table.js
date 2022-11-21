@@ -79,8 +79,8 @@ export default function Table({ product }) {
         <th scope="row">{product._id}</th>
         <td>{product.date.slice(0, 10)}</td>
 
-        <td className={`fw-semibold text-${product.status == 'confirm' ? 'success' : product.status == 'wating' ? 'warning' : 'danger'}`}>{
-          product.status == 'fail' ? 'รอการเเก้ไขจากลูกค้า' : product.status == 'wating' && product.step == 1 ? 'รอการยืนยัน' : product.status == 'wating' && product.step == 2 ? 'รอการยืนยัน testing จากลูกค้า' : product.status == 'confirm' && product.step == 2 ? 'ส่งสินค้า testing' : product.status == 'wating' && product.step == 3 ? 'รอการ testing' : product.status == 'wating' && product.step == 4 ? 'รอการมัดจำ' : product.status == 'confirm' && product.step == 4 ? 'ยืนยันการมัดจำ' : product.status == 'wating' && product.step == 5 ? 'รอลูกค้าเลือก packaging' : product.status == 'confirm' && product.step == 5 ? 'รอการตรวจสอบ packaging' : product.status == 'confirm' && product.step == 6 ? 'ยืนยัน อ.ย.' : product.status == 'confirm' && product.step == 7 ? 'ยืนยัน เสร็จสิ้นการผลิต' : product.status == 'wating' && product.step == 8 ? 'รอการชำระเงินจากลูกค้า' : product.status == 'confirm' && product.step == 8 ? 'ยืนยันการชำระเงิน' : product.status == 'wating' && product.step == 9 ? 'ยืนยันการจัดส่งสินค้า' : product.status == 'confirm' && product.step == 9 ? 'จัดส่งสินค้าเสร็จสิ้น' : null
+        <td className={`fw-semibold text-${product.status == 'confirm' && product.step < 9 ? 'warning' : product.status == 'confirm' ? 'success' : product.status == 'wating' ? 'warning' : 'danger'}`}>{
+          product.status == 'fail' ? 'รอการเเก้ไขจากลูกค้า' : product.status == 'wating' && product.step == 1 ? 'รอการยืนยัน' : product.status == 'wating' && product.step == 2 ? 'รอการยืนยัน testing จากลูกค้า' : product.status == 'confirm' && product.step == 2 ? 'กรุณาส่งสินค้า testing' : product.status == 'wating' && product.step == 3 ? 'รอการ testing' : product.status == 'wating' && product.step == 4 ? 'รอการมัดจำ' : product.status == 'confirm' && product.step == 4 ? 'ยืนยันการมัดจำ' : product.status == 'wating' && product.step == 5 ? 'รอลูกค้าเลือก packaging' : product.status == 'confirm' && product.step == 5 ? 'รอการตรวจสอบ packaging' : product.status == 'confirm' && product.step == 6 ? 'ยืนยัน อ.ย.' : product.status == 'confirm' && product.step == 7 ? 'ยืนยัน เสร็จสิ้นการผลิต' : product.status == 'wating' && product.step == 8 ? 'รอการชำระเงินจากลูกค้า' : product.status == 'confirm' && product.step == 8 ? 'ยืนยันการชำระเงิน' : product.status == 'wating' && product.step == 9 ? 'ยืนยันการจัดส่งสินค้า' : product.status == 'confirm' && product.step == 9 ? 'จัดส่งสินค้าเสร็จสิ้น' : null
         }</td>
         <td>{product.user_name}</td>
         <td>
@@ -125,7 +125,7 @@ export default function Table({ product }) {
                             <button type="button" class="btn btn-primary" onClick={sendProduce}>
                               ยืนยัน เสร็จสิ้นการผลิต
                             </button>
-                          </Link> : product.step == 8 && product.status == 'wating' ?
+                          </Link> : product.step == 8 && product.status == 'confirm' ?
                             <Link to={`/tb_pays`}>
                               <button type="button" class="btn btn-primary" onClick={sendPays}>
                                 ยืนยันการชำระเงิน

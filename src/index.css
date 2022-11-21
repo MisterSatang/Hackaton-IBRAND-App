@@ -290,3 +290,26 @@ body {
 .z-100 {
   z-index: 100;
 }
+
+.z-50 {
+  z-index: 50;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.hoverCard:hover {
+  padding-top: 1rem !important;
+}
+
+.bg-card-contain:hover {
+  background: #12162b30;
+  border-radius: 1rem !important;
+}
+
+.select-card {
+  border: 0.2rem solid #1a67e2 !important;
+  border-radius: 1rem !important;
+  transition: 0S !important;
+}

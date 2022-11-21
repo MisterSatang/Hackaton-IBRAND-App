@@ -114,7 +114,7 @@ export function Home({ className }) {
             <div className="col-1"></div>
             <div className="col">
               <div className="row p-0 m-0">
-                <div className="col-xl-4 col-lg-5 col-md-5 col-12 mt-4">
+                <div className="col-xl-4 col-lg-5 col-md-5 col-12 my-4">
                   <div class="input-group flex-nowrap">
                     <span
                       class="input-group-text bg-warning"
@@ -138,7 +138,7 @@ export function Home({ className }) {
                     </div>
                   </div>
                 </div>
-                <div className="col mt-4">
+                <div className="col my-4">
                   <div class="input-group">
                     <select
                       class="form-select"
@@ -154,7 +154,7 @@ export function Home({ className }) {
                     </select>
                   </div>
                 </div>
-                <div className="col mt-4">
+                <div className="col my-4">
                   <div class="input-group">
                     <select
                       class="form-select"
@@ -170,7 +170,7 @@ export function Home({ className }) {
                     </select>
                   </div>
                 </div>
-                <div className="col mt-4">
+                <div className="col my-4">
                   <div class="input-group">
                     <select
                       class="form-select"
@@ -197,7 +197,7 @@ export function Home({ className }) {
             <div className="col-10">
               <div className="row">
                 {factory.length > 0 && loadfav ? (
-                  <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                  <div className="row">
                     {factory.map((factoryData) => (
                       <Card
                         key={factoryData.fac_id}

@@ -32,7 +32,7 @@ export function Pays({ className }) {
       value: "wating",
     })
     axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=status`, {
-      value: "wating",
+      value: "confirm",
     })
     axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=location_customer`, {
       value: location,

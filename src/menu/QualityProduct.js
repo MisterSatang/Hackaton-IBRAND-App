@@ -90,7 +90,7 @@ export default function QualityProduct() {
           <div className="col-1"></div>
         </div>
       </div>
-      <Timeline />
+      <Timeline step={1} />
       <div className="container-fluid pt-4 bg-body-purple">
         <div className="row">
           <div className="col-1"></div>
@@ -113,7 +113,7 @@ export default function QualityProduct() {
               {product.length > 0 ? (
                 <>
                   {product.map((factoryData) => (
-                    <ProductCard key={factoryData.p_id} product={factoryData} fac_id={fac_id} />
+                    <ProductCard key={factoryData.p_id} product={factoryData} fac_id={fac_id} pro_id={product_id} />
                   ))}
                 </>
               ) : (
