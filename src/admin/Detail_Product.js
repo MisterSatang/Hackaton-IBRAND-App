@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Sidebar from "./component/Sidebar";
 import axios from "axios";
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export function Detail_Product({ className }) {
   let { tran_id } = useParams();
@@ -73,7 +74,6 @@ export function Detail_Product({ className }) {
         console.log(error);
       });
     }
-    window.location.href = "/tb_product"
   }
 
   return (
@@ -206,9 +206,11 @@ export function Detail_Product({ className }) {
                   </button>
                 </div>
                 <div className="d-flex">
-                  <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
-                    Confirm<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
-                  </button>
+                  <Link to="/tb_product">
+                    <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
+                      Confirm<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

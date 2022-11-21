@@ -54,7 +54,7 @@ export function TB_3_Testing({ className }) {
           <div className="row">
             <Sidebar />
             <div className="col">
-              <div className="fs-2 fw-bold mt-5 ms-5">On Product</div>
+              <div className="fs-2 fw-bold mt-5 ms-5">On Packaging</div>
               <div class="input-group flex-nowrap my-3">
                 <span class="input-group-text bg-warning" id="addon-wrapping">
                   <i class="bi bi-search"></i>
