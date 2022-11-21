@@ -27,14 +27,14 @@ export default function OrderCard({ factory }) {
                                 <span class="badge text-bg-warning fs-6 me-2">
                                     <div class="spinner-border spinner-border-sm me-2"></div>
                                     {
-                                        factory.step == 4 ? `ขั้นตอน ${factory.step} รอการยืนยันมัดจำ` : factory.step == 5 ? `ขั้นตอน ${factory.step} รอการตรวจสอบ` : factory.step == 6 ? `ขั้นตอน ${factory.step} รอการตรวจสอบ อ.ย.` : `ขั้นตอน ${factory.step} รอการอนุมัติ...`
+                                        factory.step == 4 ? `ขั้นตอน ${factory.step} รอการยืนยันมัดจำ` : factory.step == 5 ? `ขั้นตอน ${factory.step} รอการตรวจสอบ` : factory.step == 6 ? `ขั้นตอน ${factory.step} รอการตรวจสอบ อ.ย.` : factory.step == 7 ? `ขั้นตอน ${factory.step} รอการผลิตสินค้า...` : factory.step == 8 ? `ขั้นตอน ${factory.step} ตรวจสอบการชำระเงิน` : factory.step == 9 ? `ขั้นตอน ${factory.step} รอการจัดส่งสินค้า...` : `ขั้นตอน ${factory.step} รอการอนุมัติ...`
                                     }
                                 </span>
                             </div>) : factory.status_user == "confirm" ? (<div className="mt-2 mb-3">
                                 <span class="badge text-bg-success fs-6 me-2">
                                     <i class="bi bi-check-circle-fill me-2"></i>
                                     {
-                                        factory.step == 3 ? `ขั้นตอน ${factory.step - 1} ยืนยันสินค้า Testing` : factory.step == 4 ? `ขั้นตอน ${factory.step - 1} Testing เรียบร้อย` : factory.step == 5 ? `ขั้นตอน ${factory.step - 1} มัดจำ เรียบร้อย` : `ขั้นตอน ${factory.step - 1} อนุมัติเรียบร้อย`
+                                        factory.step == 3 ? `ขั้นตอน ${factory.step - 1} ยืนยันสินค้า Testing` : factory.step == 4 ? `ขั้นตอน ${factory.step - 1} Testing เรียบร้อย` : factory.step == 5 ? `ขั้นตอน ${factory.step - 1} มัดจำ เรียบร้อย` : factory.step == 8 ? `ขั้นตอน ${factory.step - 1} สินค้าผลิตเสร็จสิ้น` : factory.step == 9 ? `ขั้นตอน ${factory.step - 1} จัดส่งสินค้าเสร็จสิ้น` : `ขั้นตอน ${factory.step - 1} อนุมัติเรียบร้อย`
                                     }
                                 </span>
                             </div>) : (<div className="mt-2 mb-3">
@@ -58,7 +58,7 @@ export default function OrderCard({ factory }) {
                                     </div>
                                 </div>
                                 {/* add step */}
-                            </Link>) : factory.status_user == "confirm" ? (<Link to={factory.step == 2 ? `/appraise/${factory._id}` : factory.step == 3 ? `/pretester2-2/${factory._id}` : factory.step == 4 ? `/pledge/${factory._id}` : factory.step == 5 ? `/packaging/${factory._id}` : null}>
+                            </Link>) : factory.status_user == "confirm" && factory.step == 9 ? <></> : factory.status_user == "confirm" ? (<Link to={factory.step == 2 ? `/appraise/${factory._id}` : factory.step == 3 ? `/pretester2-2/${factory._id}` : factory.step == 4 ? `/pledge/${factory._id}` : factory.step == 5 ? `/packaging/${factory._id}` : factory.step == 8 ? `/pays/${factory._id}` : null}>
                                 {/* add step */}
                                 <div className="row">
                                     <div className="col">

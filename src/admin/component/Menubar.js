@@ -47,15 +47,23 @@ export default function Menubar() {
               <i class="bi bi-6-circle-fill me-2"></i> On FDA
             </div>
           </Link>
-          <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-7-circle-fill me-2"></i> On Produce
-          </div>
-          <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-8-circle-fill me-2"></i> On Pays
-          </div>
-          <div className="text-light ps-4 py-3 fs-5 ">
-            <i class="bi bi-box-seam-fill me-2"></i> On Deliveries
-          </div>
+
+          <Link to="/tb_produce" style={{ textDecoration: 'none' }}>
+            <div className="text-light ps-4 py-3 fs-5 ">
+              <i class="bi bi-7-circle-fill me-2"></i> On Produce
+            </div>
+          </Link>
+
+          <Link to="/tb_pays" style={{ textDecoration: 'none' }}>
+            <div className="text-light ps-4 py-3 fs-5 ">
+              <i class="bi bi-8-circle-fill me-2"></i> On Pays
+            </div>
+          </Link>
+          <Link to="/tb_deliveries" style={{ textDecoration: 'none' }}>
+            <div className="text-light ps-4 py-3 fs-5 ">
+              <i class="bi bi-box-seam-fill me-2"></i> On Deliveries
+            </div>
+          </Link>
           <Link to="/login" onClick={x} style={{ textDecoration: 'none' }}>
             <div className="text-light ps-4 py-4 fs-5 border-top border-light">
               <i class="bi bi-door-open-fill"></i> Logout

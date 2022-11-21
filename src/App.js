@@ -58,7 +58,7 @@ export default function App() {
       <Route path="/pledge/:tran_id" element={<Pledge />} />
       <Route path="/packaging/:tran_id" element={<Packaging />} />
       <Route path="/packaging_fail/:tran_id/:pak_id" element={<Packaging_fail />} />
-      <Route path="/pays" element={<Pays />} />
+      <Route path="/pays/:tran_id" element={<Pays />} />
 
       {/* admin */}
       <Route path="/admin" element={<Admin />} />
@@ -74,7 +74,7 @@ export default function App() {
       <Route path="/detail_product/:tran_id" element={<Detail_Product />} />
       <Route path="/detail_product_offer/:tran_id" element={<Detail_Product_Offer />} />
       <Route path="/detail_packaging/:tran_id/:pak_id" element={<Detail_Packaging />} />
-      <Route path="/detail_deliveries" element={<Detail_Deliveries />} />
+      <Route path="/detail_deliveries/:tran_id" element={<Detail_Deliveries />} />
 
       {/* Login */}
       <Route path="/login" element={<Login />} />

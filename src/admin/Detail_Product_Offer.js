@@ -87,44 +87,41 @@ export function Detail_Product_Offer({ className }) {
                             </div>
 
                             <div className="container-fluid">
-                                {
-                                    transaction.qualityComment_customer ? (<div class="px-4">
-                                        <div class="d-flex mt-3">
-                                            <span class="badge bg-danger fs-5">หมายเหตุ</span>
-                                            <span class="border-bottom border-danger border-3 mb-3 fs-5 w-100 ">
-                                                {" "}
-                                            </span>
+                                <div class="px-4">
+                                    <div class="d-flex mt-3">
+                                        <span class="badge bg-danger fs-5">หมายเหตุ</span>
+                                        <span class="border-bottom border-danger border-3 mb-3 fs-5 w-100 ">
+                                            {" "}
+                                        </span>
+                                    </div>
+                                    <div className="mt-3 bg-light shadow rounded-4 py-4">
+                                        <div class="card-text text-secondary p-3 fw-semibold">
+                                            {transaction.qualityComment_customer}
                                         </div>
-                                        <div className="mt-3 bg-light shadow rounded-4 py-4">
-                                            <div class="card-text text-secondary p-3 fw-semibold">
-                                                {transaction.qualityComment_customer}
+                                    </div>
+                                    <div class="d-flex mt-4">
+                                        <span class="badge bg-primary fs-5">จำนวนเงิน</span>
+                                        <span class="border-bottom border-primary border-3 mb-3 fs-5 w-100 ">
+                                            {" "}
+                                        </span>
+                                    </div>
+                                    <div className="mt-3 bg-light border-1 shadow rounded-4 p-4">
+                                        <div className="row">
+                                            <div className="col-12 col-xl-3 col-lg-4 col-md-6 fw-semibold fs-5 p-3">
+                                                <span className="text-purple">จำนวนสั่งทำ =</span> {transaction.count} ชิ้น
+                                            </div>
+                                            <div className="col-12 col-xl-2 col-lg-3 col-md-6 fw-semibold fs-5 p-3">
+                                                <span className="text-purple">{transaction.offer_price} </span> บาท/ชิ้น
+                                            </div>
+                                            <div className="col-12 col-xl-3 col-lg-4 col-md-6 fw-semibold fs-5 p-3">
+                                                <span className="text-purple">ราคาทั้งหมด =</span> {transaction.total_price} บาท
+                                            </div>
+                                            <div className="col-12 col-xl-3 col-lg-4 col-md-6 fw-semibold fs-5 p-3">
+                                                <span className="text-purple">มัดจำ 50% =</span> {transaction.total_offer} บาท
                                             </div>
                                         </div>
-                                        <div class="d-flex mt-4">
-                                            <span class="badge bg-primary fs-5">จำนวนเงิน</span>
-                                            <span class="border-bottom border-primary border-3 mb-3 fs-5 w-100 ">
-                                                {" "}
-                                            </span>
-                                        </div>
-                                        <div className="mt-3 bg-light border-1 shadow rounded-4 p-4">
-                                            <div className="row">
-                                                <div className="col-12 col-xl-3 col-lg-4 col-md-6 fw-semibold fs-5 p-3">
-                                                    <span className="text-purple">จำนวนสั่งทำ =</span> {transaction.count} ชิ้น
-                                                </div>
-                                                <div className="col-12 col-xl-2 col-lg-3 col-md-6 fw-semibold fs-5 p-3">
-                                                    <span className="text-purple">{transaction.offer_price} </span> บาท/ชิ้น
-                                                </div>
-                                                <div className="col-12 col-xl-3 col-lg-4 col-md-6 fw-semibold fs-5 p-3">
-                                                    <span className="text-purple">ราคาทั้งหมด =</span> {transaction.total_price} บาท
-                                                </div>
-                                                <div className="col-12 col-xl-3 col-lg-4 col-md-6 fw-semibold fs-5 p-3">
-                                                    <span className="text-purple">มัดจำ 50% =</span> {transaction.total_offer} บาท
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>) : null
-                                }
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="d-flex justify-content-between my-4 mx-4 mb-5 px-3">

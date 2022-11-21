@@ -14,7 +14,10 @@ export function Admin({ className }) {
   const [onTesting_2, setOnTesting_2] = useState([]);
   const [onOffer, setOnoffer] = useState([]);
   const [onPackaging, setOnPackaging] = useState([]);
+  const [onProduce, setOnProduce] = useState([]);
   const [onFDA, setOnFDA] = useState([]);
+  const [onPays, setOnPays] = useState([]);
+  const [onDeliver, setOnDeliver] = useState([]);
   const [allProduct, setAllProduct] = useState([]);
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -53,6 +56,15 @@ export function Admin({ className }) {
         const FDA = await axios.get(
           `http://localhost:8000/transaction/byfac/onFDA/${user.data.fac_id}`
         );
+        const produce = await axios.get(
+          `http://localhost:8000/transaction/byfac/onproduce/${user.data.fac_id}`
+        );
+        const pays = await axios.get(
+          `http://localhost:8000/transaction/byfac/onpay/${user.data.fac_id}`
+        );
+        const deliver = await axios.get(
+          `http://localhost:8000/transaction/byfac/ondeliver/${user.data.fac_id}`
+        );
         const allproduct = await axios.get(
           `http://localhost:8000/transaction/byfac/${user.data.fac_id}`
         );
@@ -62,6 +74,9 @@ export function Admin({ className }) {
         setOnoffer(offer.data);
         setOnPackaging(packaging.data);
         setOnFDA(FDA.data);
+        setOnProduce(produce.data);
+        setOnPays(pays.data);
+        setOnDeliver(deliver.data);
         setAllProduct(allproduct.data);
         setUser(user.data);
       } catch (e) {
@@ -179,7 +194,7 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">-</div>
+                        <div className="col-4 fs-2 fw-bold">{onProduce.length}</div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -193,7 +208,7 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">-</div>
+                        <div className="col-4 fs-2 fw-bold">{onPays.length}</div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -207,7 +222,7 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">-</div>
+                        <div className="col-4 fs-2 fw-bold">{onDeliver.length}</div>
                         <div className="col-4">order</div>
                       </div>
                     </div>

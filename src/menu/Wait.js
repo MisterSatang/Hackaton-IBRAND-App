@@ -71,6 +71,12 @@ export default function Wait() {
                   กำลังตรวจสอบ Packaging ใช้เวลาประมาณ 1-2 วัน
                 </div> : step == 6 ? <div className="d-flex fs-5 text- justify-content-center">
                   การขออนุมัติ อ.ย. ใช้เวลาประมาณ 7-14 วันทำการ
+                </div> : step == 7 ? <div className="d-flex fs-5 text- justify-content-center">
+                  เริ่มกระบวนการผลิต ใช้เวลาประมาณ 14-20 วันทำการ
+                </div> : step == 8 ? <div className="d-flex fs-5 text- justify-content-center">
+                  รอการตรวจสอบการชำระเงิน ใช้เวลาประมาณ 30 นาที
+                </div> : step == 9 ? <div className="d-flex fs-5 text- justify-content-center">
+                  บริษัทกำลังเตรียมจัดส่งสินค้า ใช้เวลาประมาณ 1-3 วันทำการ
                 </div> : null
               }
 
