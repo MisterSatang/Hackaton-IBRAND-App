@@ -104,9 +104,11 @@ export function Pays({ className }) {
                       My Packaging
                     </span>
                     <span className="ms-3 border-2 border-bottom border-primary">
-                      <span class="btn badge fw-semibold fs-5 text-primary">
-                        <i class="bi bi-box-arrow-up-right me-2"></i>Watch My Packaging
-                      </span>
+                      <a href={transaction.file_pakaging} target="_blank">
+                        <span class="btn badge fw-semibold fs-5 text-primary" href={transaction.file_pakaging}>
+                          <i class="bi bi-box-arrow-up-right me-2"></i>Click Open Link Packaging
+                        </span>
+                      </a>
                     </span>
                   </div>
                 </div>
