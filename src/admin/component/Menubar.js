@@ -16,7 +16,6 @@ export default function Menubar({ onNav }) {
   const [onDeliver, setOnDeliver] = useState([]);
   const [allProduct, setAllProduct] = useState([]);
   const [user, setUser] = useState([]);
-  const [sumOrder, SetSumOrder] = useState([]);
 
   const x = () => {
     localStorage.clear();
@@ -71,17 +70,6 @@ export default function Menubar({ onNav }) {
         setOnDeliver(deliver.data);
         setAllProduct(allproduct.data);
         setUser(user.data);
-        const sum =
-          onProduct.length +
-          onTesting.length +
-          onTesting_2.length +
-          onOffer.length +
-          onPackaging.length +
-          onFDA.length +
-          onProduce.length +
-          onPays.length +
-          onDeliver.length;
-        SetSumOrder(sum);
       } catch (e) {
         console.error(e);
       }
@@ -98,21 +86,21 @@ export default function Menubar({ onNav }) {
           </div>
           <Link to="/admin" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "home" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "home" ? "bg-dark-20" : ""
+                }`}
             >
               <i class="bi bi-house-fill me-2"></i> Home
               <span className="ms-2 bg-outline-light text-warning fw-semibold">
-                ทั้งหมด {sumOrder} รายการ
+                {
+                  allProduct.length > 0 ? `ทั้งหมด ${allProduct.length} รายการ` : null
+                }
               </span>
             </div>
           </Link>
           <Link to="/tb_product" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "product" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "product" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
@@ -130,9 +118,8 @@ export default function Menubar({ onNav }) {
           </Link>
           <Link to="/tb_testing" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "sendTesting" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "sendTesting" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
@@ -150,9 +137,8 @@ export default function Menubar({ onNav }) {
           </Link>
           <Link to="/tb_testing_2" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "testing" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "testing" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
@@ -170,9 +156,8 @@ export default function Menubar({ onNav }) {
           </Link>
           <Link to="/tb_offer" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "offer" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "offer" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
@@ -190,9 +175,8 @@ export default function Menubar({ onNav }) {
           </Link>
           <Link to="/tb_packaging" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "packaging" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "packaging" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
@@ -210,9 +194,8 @@ export default function Menubar({ onNav }) {
           </Link>
           <Link to="/tb_FDA" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "fda" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "fda" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
@@ -231,9 +214,8 @@ export default function Menubar({ onNav }) {
 
           <Link to="/tb_produce" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "produce" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "produce" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
@@ -252,9 +234,8 @@ export default function Menubar({ onNav }) {
 
           <Link to="/tb_pays" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "pay" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "pay" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
@@ -272,9 +253,8 @@ export default function Menubar({ onNav }) {
           </Link>
           <Link to="/tb_deliveries" style={{ textDecoration: "none" }}>
             <div
-              className={`text-light ps-4 py-3 fs-5 ${
-                onNav == "deliveries" ? "bg-dark-20" : ""
-              }`}
+              className={`text-light ps-4 py-3 fs-5 ${onNav == "deliveries" ? "bg-dark-20" : ""
+                }`}
             >
               <div className="d-flex justify-content-between">
                 <div>
