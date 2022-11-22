@@ -129,8 +129,8 @@ export default function Pretester2_2() {
             </div>
             <div className="d-flex justify-content-between mt-4">
               <div className="d-flex"></div>
-              <div className="d-flex">
-                <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
+              <div className="d-flex mt-4">
+                <button type="button" class="btn btn-primary px-5" onClick={onClickSend}>
                   SEND<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
                 </button>
               </div>

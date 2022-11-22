@@ -150,9 +150,9 @@ export default function QualityProduct_fail() {
                                     ></textarea>
                                     <div className="d-flex justify-content-between mt-4">
                                         <div className="d-flex"></div>
-                                        <div className="d-flex">
+                                        <div className="d-flex mt-4">
                                             <Link to={`/wait/${transaction.status}/${transaction.fac_id}/${transaction.step}`} onClick={onClickSend}>
-                                                <button type="button" class="btn btn-primary px-5 mt-4">
+                                                <button type="button" class="btn btn-primary px-5">
                                                     SEND<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
                                                 </button>
                                             </Link>

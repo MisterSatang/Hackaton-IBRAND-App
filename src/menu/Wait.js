@@ -93,9 +93,9 @@ export default function Wait() {
 
                 </div>
                 <div className="d-flex justify-content-between">
-                  <div className="d-flex">
+                  <div className="d-flex mt-4">
                     <Link to="/order">
-                      <button type="button" class="btn btn-primary px-5 mt-4">
+                      <button type="button" class="btn btn-primary px-5">
                         <i class="me-3 bi bi-arrow-left-circle-fill"></i>Back
                       </button>
                     </Link>

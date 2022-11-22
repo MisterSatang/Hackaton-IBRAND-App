@@ -127,9 +127,9 @@ export function Packaging({ className }) {
 
               <div className="d-flex justify-content-between mt-4">
                 <div className="d-flex"></div>
-                <div className="d-flex">
+                <div className="d-flex mt-4">
                   <Link to={`/wait/wating/${transaction.fac_id}/${transaction.step}`}>
-                    <button type="button" class="btn btn-primary px-5 mt-4" onClick={clickSend}>
+                    <button type="button" class="btn btn-primary px-5" onClick={clickSend}>
                       SEND PACKAGING
                       <i class="ms-3 bi bi-arrow-right-circle-fill"></i>
                     </button>

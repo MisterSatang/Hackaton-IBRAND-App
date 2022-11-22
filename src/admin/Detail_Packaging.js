@@ -170,14 +170,14 @@ export function Detail_Packaging({ className }) {
               </div>
 
               <div className="d-flex justify-content-between my-4 mx-4 mb-5 px-3">
-                <div className="d-flex">
-                  <button type="button" class="btn btn-primary px-5 mt-4">
+                <div className="d-flex mt-4">
+                  <button type="button" class="btn btn-primary px-5">
                     <i class="me-3 bi bi-arrow-left-circle-fill"></i>Back
                   </button>
                 </div>
-                <div className="d-flex">
+                <div className="d-flex mt-4">
                   <Link to="/tb_packaging">
-                    <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
+                    <button type="button" class="btn btn-primary px-5" onClick={onClickSend}>
                       Confirm<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
                     </button>
                   </Link>
