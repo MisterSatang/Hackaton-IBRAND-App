@@ -58,24 +58,25 @@ export default function OrderCard({ factory }) {
                                     </div>
                                 </div>
                                 {/* add step */}
-                            </Link>) : factory.status_user == "confirm" && factory.step == 9 ? <></> : factory.status_user == "confirm" ? (<Link to={factory.step == 2 ? `/appraise/${factory._id}` : factory.step == 3 ? `/pretester2-2/${factory._id}` : factory.step == 4 ? `/pledge/${factory._id}` : factory.step == 5 ? `/packaging/${factory._id}` : factory.step == 8 ? `/pays/${factory._id}` : null}>
-                                {/* add step */}
-                                <div className="row">
-                                    <div className="col">
-                                        <button type="button" class="btn btn-primary w-100">
-                                            Detail
-                                        </button>
+                            </Link>) : factory.status_user == "confirm" && factory.step == 9 ? <>
+                                <div className="text-primary fs-5 rounded-3 me-2 fw-bold text-uppercase">Delivery code </div><div className="bg-primary p-1 px-2 text-light rounded-3 me-2 fw-bold mt-2 fs-4">{factory.deliver_code}</div></> : factory.status_user == "confirm" ? (<Link to={factory.step == 2 ? `/appraise/${factory._id}` : factory.step == 3 ? `/pretester2-2/${factory._id}` : factory.step == 4 ? `/pledge/${factory._id}` : factory.step == 5 ? `/packaging/${factory._id}` : factory.step == 8 ? `/pays/${factory._id}` : null}>
+                                    {/* add step */}
+                                    <div className="row">
+                                        <div className="col">
+                                            <button type="button" class="btn btn-primary w-100">
+                                                Detail
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>) : (<Link to={factory.step == 5 ? `/packaging_fail/${factory._id}/${factory.pakaging_choose}` : `/qualityProduct_fail/${factory._id}`}>
-                                <div className="row">
-                                    <div className="col">
-                                        <button type="button" class="btn btn-primary w-100">
-                                            Detail
-                                        </button>
+                                </Link>) : (<Link to={factory.step == 5 ? `/packaging_fail/${factory._id}/${factory.pakaging_choose}` : `/qualityProduct_fail/${factory._id}`}>
+                                    <div className="row">
+                                        <div className="col">
+                                            <button type="button" class="btn btn-primary w-100">
+                                                Detail
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>)
+                                </Link>)
                         }
                     </div>
                 </div>
