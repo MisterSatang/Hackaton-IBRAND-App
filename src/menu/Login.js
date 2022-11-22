@@ -19,7 +19,9 @@ export function Login({ className }) {
       localStorage.setItem("status", token.data.token);
       localStorage.setItem("admin", token.data.rank);
       setToken(localStorage.getItem("status"));
-      token.data.rank == 1 ? window.location.href = "/admin" : window.location.href = "/"
+      token.data.rank == 1
+        ? (window.location.href = "/admin")
+        : (window.location.href = "/");
     } catch (error) {
       console.error(error);
     }
@@ -31,16 +33,13 @@ export function Login({ className }) {
         <div className="container-fluid">
           <div className="row p-0">
             <div className="col-xl-3 col-lg-4 col-md-5 col-12 bg-navbar h-nav-login">
-              <Link to="/" style={{ textDecoration: 'none' }}>
+              <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="d-flex justify-content-center align-items-center h-100 ">
                   <div class="btn rounded-pill w-50 fs-4 border-1 border-light text-light p-nav-login">
                     <div>
                       <img src="logowhite.png" class="size-logo"></img>
                     </div>
                     Home<i class="ms-2 bi bi-house-fill"></i>
-                  </div>
-                  <div className="text-light fs-1 ms-2">
-                    <i class="bi bi-caret-right-fill"></i>
                   </div>
                 </div>
               </Link>
@@ -56,15 +55,18 @@ export function Login({ className }) {
                       <input
                         type="email"
                         className="d-flex username p-3 bg-transparent border-1 border-bottom"
-                        placeholder="username" onChange={e => setEmail(e.target.value)} />
+                        placeholder="username"
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
                       <br />
                       <input
                         type="password"
                         className="d-flex pwd p-3 bg-transparent border-1 border-bottom"
-                        placeholder="password" onChange={e => setPassword(e.target.value)}
+                        placeholder="password"
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
-                    <button className="btn d-flex fs-4 p-3 fw-semibold text-light bg-navbar text-uppercase border-card justify-content-center w-100" >
+                    <button className="btn d-flex fs-4 p-3 fw-semibold text-light bg-navbar text-uppercase border-card justify-content-center w-100">
                       <div className="d-flex">Sign in</div>
                     </button>
                   </form>
@@ -74,7 +76,7 @@ export function Login({ className }) {
           </div>
         </div>
       </div>
-    </Fragment >
+    </Fragment>
   );
 }
 export default styled(Login)`
