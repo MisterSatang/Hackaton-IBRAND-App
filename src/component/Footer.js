@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -53,9 +54,11 @@ export default function Footer() {
           </div>
           <div className="text-center p-3 bg-dark-20">
             Company :
-            <a className="ms-2 text-wheat" href="#">
-              IBRAND.com
-            </a>
+            <Link to="/">
+              <a className="ms-2 text-wheat" href="#">
+                IBRAND.com
+              </a>
+            </Link>
           </div>
         </footer>
       </div>
