@@ -57,6 +57,22 @@ export function Pledge({ className }) {
     settotal_offer((e.target.value * transaction.offer_price) / 2);
   }
 
+  const handleKeypress = (e) => {
+    const characterCode = e.key
+    if (characterCode === 'Backspace') return
+
+    const characterNumber = Number(characterCode)
+    if (characterNumber >= 0 && characterNumber <= 9) {
+      if (e.currentTarget.value && e.currentTarget.value.length) {
+        return
+      } else if (characterNumber === 0) {
+        e.preventDefault()
+      }
+    } else {
+      e.preventDefault()
+    }
+  }
+
   return (
     <Fragment>
       <div className={className}>
@@ -134,6 +150,7 @@ export function Pledge({ className }) {
                             className="form-control p-2 me-4"
                             placeholder="กรุณากรอก"
                             onChange={handleChang}
+                            onKeyDown={handleKeypress}
                           />
 
                           <div className="d-flex">ชิ้น</div>

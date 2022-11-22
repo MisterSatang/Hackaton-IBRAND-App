@@ -5,6 +5,7 @@ import Sidebar from "./component/Sidebar";
 import Table from "./component/Table";
 import axios from "axios";
 import Loading from "../component/Loading";
+import CardOrder from "./component/CardOrder";
 
 export function Admin({ className }) {
   const [token, setToken] = useState(localStorage.getItem("status"));
@@ -102,132 +103,15 @@ export function Admin({ className }) {
                 จัดการลูกค้าทั้งหมด
               </div>
               <div className="row p-0">
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On Product
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onProduct.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On Send Testing
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onTesting.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On Testing
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onTesting_2.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On Offer
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onOffer.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On Packaging
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onPackaging.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On FDA
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onFDA.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On Produce
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onProduce.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On Pays
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onPays.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-md-5 col-12 mt-3 p-3">
-                  <div className="btn btn-primary p-0 w-100 rounded-5 ">
-                    <div className="rounded-cardMenuAdmin bg-dark-20 text-center p-3 text-light fw-semibold">
-                      On Deliveries
-                    </div>
-                    <div className="text-center p-3 text-light ">
-                      <div className="row d-flex align-items-center">
-                        <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onDeliver.length}</div>
-                        <div className="col-4">order</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <CardOrder step={onProduct} header={"On Product"} />
+                <CardOrder step={onTesting} header={"On Send Testing"} />
+                <CardOrder step={onTesting_2} header={"On Testing"} />
+                <CardOrder step={onOffer} header={"On Offer"} />
+                <CardOrder step={onPackaging} header={"On Packaging"} />
+                <CardOrder step={onFDA} header={"On FDA"} />
+                <CardOrder step={onProduce} header={"On Produce"} />
+                <CardOrder step={onPays} header={"On Pays"} />
+                <CardOrder step={onDeliver} header={"On Deliveries"} />
               </div>
               <div class="input-group flex-nowrap my-3">
                 <span class="input-group-text bg-warning" id="addon-wrapping">

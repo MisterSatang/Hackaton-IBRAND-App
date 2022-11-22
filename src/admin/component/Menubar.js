@@ -90,11 +90,11 @@ export default function Menubar({ onNav }) {
                 }`}
             >
               <i class="bi bi-house-fill me-2"></i> Home
-              <span className="ms-2 bg-outline-light text-warning fw-semibold">
+              <div className="ms-4 bg-outline-light text-warning fw-semibold">
                 {
-                  allProduct.length > 0 ? `ทั้งหมด ${allProduct.length} รายการ` : null
+                  allProduct.length > 0 ? ` - ทั้งหมด ${allProduct.length} รายการ` : null
                 }
-              </span>
+              </div>
             </div>
           </Link>
           <Link to="/tb_product" style={{ textDecoration: "none" }}>
@@ -123,7 +123,7 @@ export default function Menubar({ onNav }) {
             >
               <div className="d-flex justify-content-between">
                 <div>
-                  <i class="bi bi-1-circle-fill me-2"></i> On Send Testing
+                  <i class="bi bi-2-circle-fill me-2"></i> On Send Testing
                 </div>
                 <div className="d-flex me-3">
                   {onTesting.length > 0 ? (
@@ -142,7 +142,7 @@ export default function Menubar({ onNav }) {
             >
               <div className="d-flex justify-content-between">
                 <div>
-                  <i class="bi bi-1-circle-fill me-2"></i> On Testing
+                  <i class="bi bi-3-circle-fill me-2"></i> On Testing
                 </div>
                 <div className="d-flex me-3">
                   {onTesting_2.length > 0 ? (
@@ -161,7 +161,7 @@ export default function Menubar({ onNav }) {
             >
               <div className="d-flex justify-content-between">
                 <div>
-                  <i class="bi bi-1-circle-fill me-2"></i> On Offer
+                  <i class="bi bi-4-circle-fill me-2"></i> On Offer
                 </div>
                 <div className="d-flex me-3">
                   {onOffer.length > 0 ? (
@@ -180,7 +180,7 @@ export default function Menubar({ onNav }) {
             >
               <div className="d-flex justify-content-between">
                 <div>
-                  <i class="bi bi-1-circle-fill me-2"></i> On Packaging
+                  <i class="bi bi-5-circle-fill me-2"></i> On Packaging
                 </div>
                 <div className="d-flex me-3">
                   {onPackaging.length > 0 ? (
@@ -199,7 +199,7 @@ export default function Menubar({ onNav }) {
             >
               <div className="d-flex justify-content-between">
                 <div>
-                  <i class="bi bi-1-circle-fill me-2"></i> On FDA
+                  <i class="bi bi-6-circle-fill me-2"></i> On FDA
                 </div>
                 <div className="d-flex me-3">
                   {onFDA.length > 0 ? (
@@ -219,7 +219,7 @@ export default function Menubar({ onNav }) {
             >
               <div className="d-flex justify-content-between">
                 <div>
-                  <i class="bi bi-1-circle-fill me-2"></i> On Produce
+                  <i class="bi bi-7-circle-fill me-2"></i> On Produce
                 </div>
                 <div className="d-flex me-3">
                   {onProduce.length > 0 ? (
@@ -239,7 +239,7 @@ export default function Menubar({ onNav }) {
             >
               <div className="d-flex justify-content-between">
                 <div>
-                  <i class="bi bi-1-circle-fill me-2"></i> On Pays
+                  <i class="bi bi-8-circle-fill me-2"></i> On Pays
                 </div>
                 <div className="d-flex me-3">
                   {onPays.length > 0 ? (
@@ -258,7 +258,7 @@ export default function Menubar({ onNav }) {
             >
               <div className="d-flex justify-content-between">
                 <div>
-                  <i class="bi bi-1-circle-fill me-2"></i>On Deliveries
+                  <i class="bi bi-box-seam-fill me-2"></i>On Deliveries
                 </div>
                 <div className="d-flex me-3">
                   {onDeliver.length > 0 ? (

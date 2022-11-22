@@ -108,14 +108,13 @@ export function Packaging({ className }) {
               <div className="d-flex fs-5 mb-3 fw-bold text-uppercase">
                 You Can Download From<i class="bi bi-caret-down-fill ms-2"></i>
               </div>
-              <span className="btn fw-semibold bg-navbar text-light p-2 px-4 rounded-pill ">
-                แบบฟอร์มการออกเเบบ คลิ๊ก
-                <i class="ms-2 bi bi-download"></i>
-              </span>
-              <span className="btn ms-2 fw-semibold bg-navbar text-light p-2 px-4 rounded-pill">
-                Ex. Design Pakaging
-                <i class="ms-2 bi bi-download"></i>
-              </span>
+
+              <a href="https://shorturl.asia/iwdyf" target="_blank">
+                <span className="btn ms-2 fw-semibold bg-navbar text-light p-2 px-4 rounded-pill">
+                  Ex. Design Pakaging
+                  <i class="ms-2 bi bi-download"></i>
+                </span>
+              </a>
 
               <div className="mt-5">
                 <span className="fs-5 mb-3 fw-bold text-uppercase">
