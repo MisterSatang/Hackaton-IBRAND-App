@@ -6,7 +6,7 @@ export default function Navbar({ onNav }) {
 
   const x = () => {
     localStorage.clear();
-  }
+  };
 
   console.log(onNav);
 
@@ -32,52 +32,78 @@ export default function Navbar({ onNav }) {
             <ul class="navbar-nav ms-auto bg-dark-20 rounded-5 ">
               <Link
                 to="/"
-                class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${onNav == "home" ? "active bg-dark-20" : ""}`}
+                class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${
+                  onNav == "home" ? "active bg-dark-20" : ""
+                }`}
               >
                 <div class={`${onNav == "home" ? "nav-menu" : ""}`}>
-                  {onNav == "home" ? <i class="bi bi-house-door me-1 text-wheat"></i> : ""}
+                  {onNav == "home" ? (
+                    <i class="bi bi-house-door me-1 text-wheat"></i>
+                  ) : (
+                    ""
+                  )}
                   Home
                 </div>
               </Link>
-              {
-                token ? <Link
+              {token ? (
+                <Link
                   to="/mylist"
-                  class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${onNav == "mylist" ? "active bg-dark-20" : ""}`}
+                  class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${
+                    onNav == "mylist" ? "active bg-dark-20" : ""
+                  }`}
                 >
                   <div class={`${onNav == "mylist" ? "nav-menu" : ""}`}>
-                    {onNav == "mylist" ? <i class="bi bi-heart me-1 text-wheat"></i> : ""}
+                    {onNav == "mylist" ? (
+                      <i class="bi bi-heart me-1 text-wheat"></i>
+                    ) : (
+                      ""
+                    )}
                     Mylist
                   </div>
-                </Link> : null
-              }
-              {
-                token ? <Link
+                </Link>
+              ) : null}
+              {token ? (
+                <Link
                   to="/order"
-                  class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${onNav == "order" ? "active bg-dark-20" : ""}`}
+                  class={`nav-link 0 rounded-menu p-2 px-5 text-light border-0 ${
+                    onNav == "order" ? "active bg-dark-20" : ""
+                  }`}
                 >
                   <div class={`${onNav == "order" ? "nav-menu" : ""}`}>
-                    {onNav == "order" ? <i class="bi bi-bag me-1 text-wheat"></i> : ""}
+                    {onNav == "order" ? (
+                      <i class="bi bi-bag me-1 text-wheat"></i>
+                    ) : (
+                      ""
+                    )}
                     Order
                   </div>
-                </Link> : null
-              }
+                </Link>
+              ) : null}
             </ul>
             <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
-              {
-                token ? <Link to="/login" onClick={x}>
-                  <button type="button" class="btn btn-outline-light rounded-pill">
-                    Logout
+              {token ? (
+                <Link to="/login" onClick={x}>
+                  <button
+                    type="button"
+                    class="btn btn-outline-light rounded-pill"
+                  >
+                    <i class="bi bi-door-open me-2"></i>Logout
                   </button>
-                </Link> : <Link to="/login">
-                  <button type="button" class="btn btn-outline-light rounded-pill">
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <button
+                    type="button"
+                    class="btn btn-outline-light rounded-pill"
+                  >
                     Login<i class="ms-2 bi bi-person-circle"></i>
                   </button>
                 </Link>
-              }
+              )}
             </ul>
           </div>
         </div>
       </nav>
-    </Fragment >
+    </Fragment>
   );
 }
