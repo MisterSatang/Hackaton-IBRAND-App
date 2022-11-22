@@ -43,9 +43,6 @@ export default function Pretester2_2() {
       });
       window.location.href = `/pledge/${transaction._id}`
     } else {
-      axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=step`, {
-        value: 1,
-      })
       window.location.href = `/qualityProduct_fix/${transaction._id}`
     }
   }

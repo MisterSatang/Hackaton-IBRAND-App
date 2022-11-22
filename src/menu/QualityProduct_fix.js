@@ -45,6 +45,9 @@ export default function QualityProduct_fail() {
 
     const onClickSend = () => {
         console.log(detail);
+        axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=step`, {
+            value: 1,
+        })
         axios.put(`http://localhost:8000/transaction/update/${transaction._id}?update=qualityComment_customer`, {
             value: detail,
         })

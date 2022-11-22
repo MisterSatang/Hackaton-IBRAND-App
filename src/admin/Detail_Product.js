@@ -38,6 +38,22 @@ export function Detail_Product({ className }) {
     getTransaction();
   }, []);
 
+  const handleKeypress = (e) => {
+    const characterCode = e.key
+    if (characterCode === 'Backspace') return
+
+    const characterNumber = Number(characterCode)
+    if (characterNumber >= 0 && characterNumber <= 9) {
+      if (e.currentTarget.value && e.currentTarget.value.length) {
+        return
+      } else if (characterNumber === 0) {
+        e.preventDefault()
+      }
+    } else {
+      e.preventDefault()
+    }
+  }
+
 
 
   const onClickSend = () => {
@@ -143,6 +159,8 @@ export function Detail_Product({ className }) {
                   <input
                     type="number"
                     className="form-control"
+                    min="0"
+                    onKeyDown={handleKeypress}
                     aria-label="Dollar amount (with dot and two decimal places)"
                     onChange={e => setOfers(e.target.value)}
                   />
@@ -157,6 +175,8 @@ export function Detail_Product({ className }) {
                   <input
                     type="number"
                     className="form-control"
+                    min="0"
+                    onKeyDown={handleKeypress}
                     aria-label="Dollar amount (with dot and two decimal places)"
                     onChange={e => setTest(e.target.value)}
                   />
