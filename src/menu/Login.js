@@ -8,6 +8,7 @@ export function Login({ className }) {
   const [token, setToken] = useState("");
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
+  const [checkLogin, setCheckLogin] = useState("true");
 
   const onSubmit = async (e) => {
     try {
@@ -23,6 +24,7 @@ export function Login({ className }) {
         ? (window.location.href = "/admin")
         : (window.location.href = "/");
     } catch (error) {
+      setCheckLogin("false");
       console.error(error);
     }
   };
@@ -32,7 +34,7 @@ export function Login({ className }) {
       <div className={className}>
         <div className="container-fluid">
           <div className="row p-0">
-            <div className="col-xl-3 col-lg-4 col-md-5 col-12 bg-navbar h-nav-login">
+            <div className="col-xl-3 col-lg-4 col-md-5 col-12 bg-navbar h-nav-login ">
               <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="d-flex justify-content-center align-items-center h-100 ">
                   <div class="btn rounded-pill w-50 fs-4 border-1 border-light text-light p-nav-login">
@@ -47,11 +49,22 @@ export function Login({ className }) {
             <div className="col bg-login">
               <div className="d-flex justify-content-center align-items-center h-login">
                 <div className="d-flex flex-column shadow rounded-5 card-login bg-light">
-                  <div className="d-flex ms-5 my-4 fs-2 fw-bold text-purple text-uppercase">
+                  <div className="d-flex ms-5 mt-4 mb-2 fs-2 fw-bold text-purple text-uppercase">
                     Login IBRAND
                   </div>
+                  {checkLogin == "false" ? (
+                    <div className="d-flex bg-danger justify-content-center align-item-center  ">
+                      <div className="d-flex bg-danger p-2 text-light rounded-3 text-uppercase">
+                        <i class="bi bi-exclamation-circle-fill me-2"></i>
+                        Username or password Incorrect
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
                   <form onSubmit={onSubmit}>
-                    <div className="d-flex flex-column mx-2 mb-5">
+                    <div className="d-flex flex-column mx-2 mb-5 mt-4">
                       <input
                         type="email"
                         className="d-flex username p-3 bg-transparent border-1 border-bottom"
