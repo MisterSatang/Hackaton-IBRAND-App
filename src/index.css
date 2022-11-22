@@ -340,3 +340,7 @@ body {
   border-radius: 6.25rem;
   opacity: .5
 }
+
+.vh-75 {
+  height: 75vh;
+}

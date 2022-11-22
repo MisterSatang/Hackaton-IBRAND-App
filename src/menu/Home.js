@@ -5,6 +5,7 @@ import Card from "../component/Card";
 import axios from "axios";
 import styled from "styled-components";
 import DonotHave from "../component/DonotHave";
+import LoadingHome from "../component/LoadingHome";
 
 export function Home({ className }) {
   const [factory, setFactory] = useState([]);
@@ -206,9 +207,9 @@ export function Home({ className }) {
                       />
                     ))}
                   </div>
-                ) : (
-                  <DonotHave />
-                )}
+                ) : !loadfav ? (
+                  <LoadingHome />
+                ) : <DonotHave />}
               </div>
             </div>
             <div className="col-1"></div>
