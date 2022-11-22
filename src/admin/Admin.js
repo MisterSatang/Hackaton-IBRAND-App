@@ -36,8 +36,8 @@ export function Admin({ className }) {
         setLoading(true);
         const user = await axios.get(`http://localhost:8000/user/getuser`, {
           headers: {
-            token: token
-          }
+            token: token,
+          },
         });
         const onproduct = await axios.get(
           `http://localhost:8000/transaction/byfac/onproduct/${user.data.fac_id}`
@@ -47,7 +47,8 @@ export function Admin({ className }) {
         );
         const ontesting_2 = await axios.get(
           `http://localhost:8000/transaction/byfac/ontesting_2/${user.data.fac_id}`
-        ); const offer = await axios.get(
+        );
+        const offer = await axios.get(
           `http://localhost:8000/transaction/byfac/onoffer/${user.data.fac_id}`
         );
         const packaging = await axios.get(
@@ -81,7 +82,6 @@ export function Admin({ className }) {
         setUser(user.data);
       } catch (e) {
         console.error(e);
-
       } finally {
         setLoading(false);
       }
@@ -89,7 +89,7 @@ export function Admin({ className }) {
     getUser();
   }, []);
 
-  if (loading) return <Loading />
+  if (loading) return <Loading />;
 
   return (
     <Fragment>
@@ -110,7 +110,9 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onProduct.length}</div>
+                        <div className="col-4 fs-2 fw-bold">
+                          {onProduct.length}
+                        </div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -124,7 +126,9 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onTesting.length}</div>
+                        <div className="col-4 fs-2 fw-bold">
+                          {onTesting.length}
+                        </div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -138,7 +142,9 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onTesting_2.length}</div>
+                        <div className="col-4 fs-2 fw-bold">
+                          {onTesting_2.length}
+                        </div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -152,7 +158,9 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onOffer.length}</div>
+                        <div className="col-4 fs-2 fw-bold">
+                          {onOffer.length}
+                        </div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -166,7 +174,9 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onPackaging.length}</div>
+                        <div className="col-4 fs-2 fw-bold">
+                          {onPackaging.length}
+                        </div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -194,7 +204,9 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onProduce.length}</div>
+                        <div className="col-4 fs-2 fw-bold">
+                          {onProduce.length}
+                        </div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -208,7 +220,9 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onPays.length}</div>
+                        <div className="col-4 fs-2 fw-bold">
+                          {onPays.length}
+                        </div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
@@ -222,24 +236,19 @@ export function Admin({ className }) {
                     <div className="text-center p-3 text-light ">
                       <div className="row d-flex align-items-center">
                         <div className="col-4">total :</div>
-                        <div className="col-4 fs-2 fw-bold">{onDeliver.length}</div>
+                        <div className="col-4 fs-2 fw-bold">
+                          {onDeliver.length}
+                        </div>
                         <div className="col-4">order</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="input-group flex-nowrap my-3">
-                <span class="input-group-text bg-warning" id="addon-wrapping">
-                  <i class="bi bi-search"></i>
-                </span>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search Order Number"
-                />
+              <div className="fs-2 fw-bold mt-4 ms-5 border-bottom border-3 border-primary">
+                ตารางทั้งหมด
               </div>
-              <table class="table ">
+              <table class="table mt-4">
                 <thead className="bg-navbar text-light">
                   <tr>
                     <th scope="col">Order Number</th>

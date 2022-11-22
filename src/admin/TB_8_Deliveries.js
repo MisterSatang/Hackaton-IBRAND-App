@@ -27,8 +27,8 @@ export function TB_8_Deliveries({ className }) {
         setLoading(true);
         const user = await axios.get(`http://localhost:8000/user/getuser`, {
           headers: {
-            token: token
-          }
+            token: token,
+          },
         });
         const onproduct = await axios.get(
           `http://localhost:8000/transaction/byfac/ondeliver/${user.data.fac_id}`
@@ -37,7 +37,6 @@ export function TB_8_Deliveries({ className }) {
         setUser(user.data);
       } catch (e) {
         console.error(e);
-
       } finally {
         setLoading(false);
       }
@@ -45,7 +44,7 @@ export function TB_8_Deliveries({ className }) {
     getUser();
   }, []);
 
-  if (loading) return <Loading />
+  if (loading) return <Loading />;
 
   return (
     <Fragment>
@@ -54,17 +53,7 @@ export function TB_8_Deliveries({ className }) {
           <div className="row">
             <Sidebar onNav="deliveries" />
             <div className="col">
-              <div className="fs-2 fw-bold mt-5 ms-5">On Deliveries</div>
-              <div class="input-group flex-nowrap my-3">
-                <span class="input-group-text bg-warning" id="addon-wrapping">
-                  <i class="bi bi-search"></i>
-                </span>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search Order Number"
-                />
-              </div>
+              <div className="fs-2 fw-bold mt-5 mb-3 ms-5">On Deliveries</div>
               <table class="table ">
                 <thead className="bg-navbar text-light">
                   <tr>
