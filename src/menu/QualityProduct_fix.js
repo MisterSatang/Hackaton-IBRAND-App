@@ -7,6 +7,7 @@ import axios from 'axios';
 import ProductCard from "../component/ProductCard";
 import Detail_productQality from "../component/Detail_productQality";
 import { Link } from "react-router-dom";
+import LoadingHome from "../component/LoadingHome";
 
 export default function QualityProduct_fail() {
     let { tran_id } = useParams();
@@ -16,6 +17,7 @@ export default function QualityProduct_fail() {
     const [qualityComment_customer, setqualityComment_customer] = useState("");
     const [transaction, settransaction] = useState([]);
     const [text, settext] = useState([]);
+    const [load, setload] = useState(false);
 
     useEffect(() => {
         async function getfactory() {

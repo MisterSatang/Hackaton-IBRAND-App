@@ -7,6 +7,8 @@ import axios from 'axios';
 import ProductCard from "../component/ProductCard";
 import Detail_productQality from "../component/Detail_productQality";
 import { Link } from "react-router-dom";
+import LoadingHome from "../component/LoadingHome";
+
 
 export default function QualityProduct() {
   let { fac_id, product_id } = useParams();
@@ -17,15 +19,23 @@ export default function QualityProduct() {
   const [detail, setdetail] = useState("");
   const x = parseInt(product_id.slice(-1));
   const [user, setUser] = useState("");
+  const [load, setload] = useState(false);
 
   useEffect(() => {
     async function getfactory() {
-      const factory = await axios.get(
-        `http://localhost:8000/factory/search/${fac_id}`
-      );
-      setFactory(factory.data);
-      setimage(factory.data.image)
-      setproduct(factory.data.product)
+      try {
+        setload(false);
+        const factory = await axios.get(
+          `http://localhost:8000/factory/search/${fac_id}`
+        );
+        setFactory(factory.data);
+        setimage(factory.data.image)
+        setproduct(factory.data.product)
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setload(true);
+      }
     }
     getfactory();
   }, [fac_id, product_id]);
@@ -76,26 +86,27 @@ export default function QualityProduct() {
   return (
     <Fragment>
       <Navbar />
-      <div className="container-fluid pt-4 bg-body-purple">
-        <div className="row">
-          <div className="col-1"></div>
-          <div className="col-10">
-            <div className="d-flex justify-content-between border-primary border-bottom border-2 pb-2">
-              <div className="d-flex fs-4 fw-bold text-uppercase">
-                <i class="bi bi-buildings-fill fs-4 me-2"></i>
-                {factory.title}
+      {
+        !load ? <LoadingHome></LoadingHome> : <><div className="container-fluid pt-4 bg-body-purple">
+          <div className="row">
+            <div className="col-1"></div>
+            <div className="col-10">
+              <div className="d-flex justify-content-between border-primary border-bottom border-2 pb-2">
+                <div className="d-flex fs-4 fw-bold text-uppercase">
+                  <i class="bi bi-buildings-fill fs-4 me-2"></i>
+                  {factory.title}
+                </div>
               </div>
             </div>
+            <div className="col-1"></div>
           </div>
-          <div className="col-1"></div>
         </div>
-      </div>
-      <Timeline step={1} />
-      <div className="container-fluid pt-4 bg-body-purple">
-        <div className="row">
-          <div className="col-1"></div>
-          <div className="col-10">
-            {/* <div className="bg-danger p-4 rounded-4 mb-4">
+          <Timeline step={1} />
+          <div className="container-fluid pt-4 bg-body-purple">
+            <div className="row">
+              <div className="col-1"></div>
+              <div className="col-10">
+                {/* <div className="bg-danger p-4 rounded-4 mb-4">
               <div className="d-flex fs-4 fw-bold text-light justify-content-center">
                 สูตรมีความผิดพลาด กรุณาเเก้ไขสูตรใหม่
               </div>
@@ -106,63 +117,64 @@ export default function QualityProduct() {
                 ช่วยเพิ่มความชุ่มชื้นไม่ทำให้ผิวแห้งลอก
               </div>
             </div> */}
-            <div className="d-flex fs-5 fw-bold text-uppercase">
-              Step 1 : Select quality Product
-            </div>
-            <div className="row p-0 m-0">
-              {product.length > 0 ? (
-                <>
-                  {product.map((factoryData) => (
-                    <ProductCard key={factoryData.p_id} product={factoryData} fac_id={fac_id} pro_id={product_id} />
-                  ))}
-                </>
-              ) : (
-                <div></div>
-              )}
-            </div>
-          </div>
-          <div className="col-1"></div>
-        </div>
-      </div>
-
-      <div className="container-fluid pt-5 bg-body-purple">
-        <div className="row">
-          <div className="col-1"></div>
-
-          <div className="col-10">
-            {product.length > 0 ? (
-              <>
-                <Detail_productQality product={product[x - 1]} />
-              </>
-            ) : (
-              <div></div>
-            )}
-            <div className="d-flex fs-5 fw-bold text-uppercase mt-4">
-              รายละเอียดเพิ่มเติม (ปรับเเต่งสูตร)
-            </div>
-            <div class="form-outline mt-2">
-              <textarea
-                class="form-control"
-                id="textAreaExample"
-                rows="4"
-                onChange={e => setdetail(e.target.value)}
-              ></textarea>
-              <div className="d-flex justify-content-between mt-4">
-                <div className="d-flex"></div>
-                <div className="d-flex">
-                  <Link to={`/wait/wating/${factory.fac_id}/1`}>
-                    <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
-                      SEND<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
-                    </button>
-                  </Link>
+                <div className="d-flex fs-5 fw-bold text-uppercase">
+                  Step 1 : Select quality Product
+                </div>
+                <div className="row p-0 m-0">
+                  {product.length > 0 ? (
+                    <>
+                      {product.map((factoryData) => (
+                        <ProductCard key={factoryData.p_id} product={factoryData} fac_id={fac_id} pro_id={product_id} />
+                      ))}
+                    </>
+                  ) : (
+                    <div></div>
+                  )}
                 </div>
               </div>
+              <div className="col-1"></div>
             </div>
           </div>
 
-          <div className="col-1"></div>
-        </div>
-      </div>
+          <div className="container-fluid pt-5 bg-body-purple">
+            <div className="row">
+              <div className="col-1"></div>
+
+              <div className="col-10">
+                {product.length > 0 ? (
+                  <>
+                    <Detail_productQality product={product[x - 1]} />
+                  </>
+                ) : (
+                  <div></div>
+                )}
+                <div className="d-flex fs-5 fw-bold text-uppercase mt-4">
+                  รายละเอียดเพิ่มเติม (ปรับเเต่งสูตร)
+                </div>
+                <div class="form-outline mt-2">
+                  <textarea
+                    class="form-control"
+                    id="textAreaExample"
+                    rows="4"
+                    onChange={e => setdetail(e.target.value)}
+                  ></textarea>
+                  <div className="d-flex justify-content-between mt-4">
+                    <div className="d-flex"></div>
+                    <div className="d-flex">
+                      <Link to={`/wait/wating/${factory.fac_id}/1`}>
+                        <button type="button" class="btn btn-primary px-5 mt-4" onClick={onClickSend}>
+                          SEND<i class="ms-3 bi bi-arrow-right-circle-fill"></i>
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-1"></div>
+            </div>
+          </div></>
+      }
       <Footer />
     </Fragment>
   );
